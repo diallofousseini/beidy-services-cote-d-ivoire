@@ -1,0 +1,119 @@
+import React from 'react';
+import { Quote, Award, ShieldCheck, CheckCircle, Sparkles } from 'lucide-react';
+import dgPhoto from '../assets/images/dg_hassane_barry_1785032207219.jpg';
+
+export const DirectorMessage: React.FC = () => {
+  return (
+    <section id="mot-du-dg" className="py-20 bg-white relative overflow-hidden">
+      {/* Background Accent Lines */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-[#2E9D62]/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#2563EB]/5 rounded-full blur-3xl pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        {/* Asymmetrical 50% / 50% Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          
+          {/* Left Side: Photo of DG M. Hassane Barry (5 columns) */}
+          <div className="lg:col-span-5 relative">
+            <div className="relative mx-auto max-w-md lg:max-w-none">
+              
+              {/* Outer Decorative Frame Accent */}
+              <div className="absolute -inset-4 bg-gradient-to-tr from-[#2E9D62] via-[#2563EB] to-emerald-400 rounded-3xl transform -rotate-2 opacity-80 blur-sm" />
+              
+              <div className="relative bg-white p-2 rounded-2xl shadow-2xl overflow-hidden border border-gray-100">
+                <img
+                  src={dgPhoto}
+                  alt="M. Hassane Barry - Directeur Général BEIDY SERVICES"
+                  className="w-full h-[460px] sm:h-[520px] object-cover object-top rounded-xl"
+                  referrerPolicy="no-referrer"
+                />
+                
+                {/* Overlay Badge for DG Title */}
+                <div className="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-md p-4 rounded-xl shadow-lg border border-gray-200">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-[#2E9D62] text-white flex items-center justify-center shrink-0 shadow-md">
+                      <Award className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <h3 className="font-extrabold text-gray-900 text-base font-serif-heading">M. Hassane Barry</h3>
+                      <p className="text-xs font-bold text-[#2563EB]">Directeur Général - BEIDY SERVICES</p>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              {/* Floating Quality Seal */}
+              <div className="absolute -top-6 -right-6 bg-[#2E9D62] text-white p-4 rounded-2xl shadow-xl flex items-center gap-2 border-2 border-white animate-float hidden sm:flex">
+                <ShieldCheck className="w-6 h-6 text-emerald-200" />
+                <div className="text-left">
+                  <span className="block text-[10px] uppercase font-bold tracking-wider text-emerald-100">Garantie</span>
+                  <span className="block text-xs font-black">100% Qualité BTP & Eau</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          {/* Right Side: Message & Quote (7 columns) */}
+          <div className="lg:col-span-7 space-y-6">
+            
+            <div className="inline-flex items-center gap-2 bg-[#EFF6FF] text-[#2563EB] font-bold text-xs px-3.5 py-1.5 rounded-full uppercase tracking-wider border border-[#2563EB]/20">
+              <Sparkles className="w-3.5 h-3.5 text-[#2563EB]" />
+              <span>Vision Leadership</span>
+            </div>
+
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 font-serif-heading leading-tight">
+              Le Mot du Directeur Général
+            </h2>
+
+            {/* Quote Block in Large Serif Typography */}
+            <div className="relative bg-[#F8F9FA] p-8 sm:p-10 rounded-2xl border-l-4 border-[#2E9D62] shadow-sm">
+              <Quote className="w-12 h-12 text-[#2E9D62]/20 absolute top-4 right-4 pointer-events-none" />
+              
+              <blockquote className="font-serif-heading text-lg sm:text-2xl text-gray-800 font-semibold leading-relaxed italic mb-6">
+                « Notre engagement envers la Côte d'Ivoire repose sur trois piliers : la solidité de nos constructions, l'accès universel à l'eau potable et l'énergie pour chaque foyer. Chez BEIDY SERVICES, nous transformons les défis techniques en moteurs de développement. »
+              </blockquote>
+
+              <div className="flex items-center justify-between pt-4 border-t border-gray-200/80">
+                <div>
+                  <span className="block font-bold text-gray-900 text-base">Hassane BARRY</span>
+                  <span className="block text-xs font-medium text-gray-500">Directeur Général, BEIDY SERVICES CÔTE D'IVOIRE</span>
+                </div>
+                <div className="text-right">
+                  <span className="font-stencil-brand text-xs font-extrabold text-[#2563EB] block">BEIDY SERVICES</span>
+                  <span className="text-[10px] text-gray-400 font-semibold uppercase">Abidjan, Côte d'Ivoire</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Additional Text Paragraphs */}
+            <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
+              En tant qu'entreprise dynamique implantée à Abidjan (Cocody Abatta), nous plaçons l'excellence technique et l'intégrité au cœur de chacune de nos opérations. Que ce soit pour bâtir une villa familiale, forer un puit d'eau profonde en zone rurale ou raccorder un village au réseau électrique, nos équipes mobilisent un matériel de pointe et un savoir-faire rigoureux.
+            </p>
+
+            {/* Key Commitment Pillars */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+              <div className="flex items-center gap-2.5 bg-white p-3.5 rounded-xl border border-gray-100 shadow-sm">
+                <CheckCircle className="w-5 h-5 text-[#2E9D62] shrink-0" />
+                <span className="text-xs font-bold text-gray-800">Sécurité & Normes BTP</span>
+              </div>
+              <div className="flex items-center gap-2.5 bg-white p-3.5 rounded-xl border border-gray-100 shadow-sm">
+                <CheckCircle className="w-5 h-5 text-[#2563EB] shrink-0" />
+                <span className="text-xs font-bold text-gray-800">Accès à l'Eau Propre</span>
+              </div>
+              <div className="flex items-center gap-2.5 bg-white p-3.5 rounded-xl border border-gray-100 shadow-sm">
+                <CheckCircle className="w-5 h-5 text-[#2E9D62] shrink-0" />
+                <span className="text-xs font-bold text-gray-800">Énergies Écologiques</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  );
+};

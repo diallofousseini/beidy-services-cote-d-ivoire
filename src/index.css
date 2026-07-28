@@ -1,0 +1,115 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-serif: 'Playfair Display', Georgia, serif;
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-stencil: 'Cinzel', 'Playfair Display', serif;
+    
+    /* Brand palette extracted directly from company logo and posters */
+    --color-emerald: #2E9D62;
+    --color-emerald-dark: #1F7A4A;
+    --color-emerald-light: #EBF7F0;
+    --color-horizon-blue: #2563EB;
+    --color-horizon-blue-dark: #1D4ED8;
+    --color-horizon-blue-light: #EFF6FF;
+    --color-charcoal: #1A1A1A;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    color: var(--color-charcoal);
+    background-color: #F8F9FA;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, .font-serif-heading {
+    font-family: var(--font-serif);
+  }
+
+  .font-stencil-brand {
+    font-family: var(--font-stencil);
+    letter-spacing: 0.05em;
+  }
+}
+
+/* Custom Utilities for BEIDY SERVICES Brand Styling */
+.bg-emerald-brand {
+  background-color: #2E9D62;
+}
+
+.bg-emerald-brand-dark {
+  background-color: #1F7A4A;
+}
+
+.text-emerald-brand {
+  color: #2E9D62;
+}
+
+.border-emerald-brand {
+  border-color: #2E9D62;
+}
+
+.bg-horizon-blue {
+  background-color: #2563EB;
+}
+
+.bg-horizon-blue-hover:hover {
+  background-color: #1D4ED8;
+}
+
+.text-horizon-blue {
+  color: #2563EB;
+}
+
+.border-horizon-blue {
+  border-color: #2563EB;
+}
+
+/* Glassmorphism Sticky Header */
+.header-glass {
+  background-color: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.header-glass-dark {
+  background-color: rgba(17, 24, 39, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Stencil text effect mirroring the real logo */
+.stencil-text {
+  background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+/* Custom animations */
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+.animate-float {
+  animation: floatSlow 5s ease-in-out infinite;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+::-webkit-scrollbar-thumb {
+  background: #2E9D62;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #1F7A4A;
+}

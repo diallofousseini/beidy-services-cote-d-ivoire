@@ -1,0 +1,84 @@
+import React, { useState } from 'react';
+import { Navbar } from './components/Navbar';
+import { Hero } from './components/Hero';
+import { ServicesSection } from './components/ServicesSection';
+import { DirectorMessage } from './components/DirectorMessage';
+import { ValuesSection } from './components/ValuesSection';
+import { PortfolioProjects } from './components/PortfolioProjects';
+import { QuoteEstimator } from './components/QuoteEstimator';
+import { AboutSection } from './components/AboutSection';
+import { ContactFooter } from './components/ContactFooter';
+import { QuoteModal } from './components/QuoteModal';
+import { FloatingActions } from './components/FloatingActions';
+
+export default function App() {
+  const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
+  const [selectedModalCategory, setSelectedModalCategory] = useState('BTP et Gros Œuvre');
+  const [contactPreFill, setContactPreFill] = useState<{
+    service: string;
+    location: string;
+    message: string;
+  } | null>(null);
+
+  const handleOpenQuoteModal = (category?: string) => {
+    if (category) {
+      if (category === 'btp') setSelectedModalCategory('BTP et Gros Œuvre');
+      else if (category === 'forage') setSelectedModalCategory('Forage d\'Eau Potable');
+      else if (category === 'electrification') setSelectedModalCategory('Électrification Rurale & Solaire');
+      else setSelectedModalCategory(category);
+    } else {
+      setSelectedModalCategory('BTP et Gros Œuvre');
+    }
+    setIsQuoteModalOpen(true);
+  };
+
+  const handlePreFillContact = (data: { service: string; location: string; message: string }) => {
+    setContactPreFill(data);
+  };
+
+  return (
+    <div className="min-h-screen bg-[#F8F9FA] text-[#1A1A1A] font-sans antialiased selection:bg-[#2E9D62] selection:text-white">
+      {/* Sticky Header Navbar */}
+      <Navbar onOpenQuoteModal={() => handleOpenQuoteModal()} />
+
+      {/* Main Content Sections */}
+      <main>
+        {/* Section 1: Hero Carousel / Showcase */}
+        <Hero onOpenQuoteModal={() => handleOpenQuoteModal()} />
+
+        {/* Section 2: Nos Domaines d'Expertise (3 Cards Grid + Modal Details) */}
+        <ServicesSection
+          onSelectServiceForQuote={(cat) => handleOpenQuoteModal(cat)}
+        />
+
+        {/* Section 3: Le Mot du Directeur Général (M. Hassane Barry) */}
+        <DirectorMessage />
+
+        {/* Section 4: Nos Valeurs & Engagements */}
+        <ValuesSection />
+
+        {/* Section 5: Nos Réalisations en Côte d'Ivoire */}
+        <PortfolioProjects />
+
+        {/* Section 6: Calculateur / Estimateur de Devis en Ligne */}
+        <QuoteEstimator onPreFillContactForm={handlePreFillContact} />
+
+        {/* Section 7: À Propos */}
+        <AboutSection />
+
+        {/* Section 8: Formulaire de Contact & Footer */}
+        <ContactFooter preFilledData={contactPreFill} />
+      </main>
+
+      {/* Interactive Quote Modal */}
+      <QuoteModal
+        isOpen={isQuoteModalOpen}
+        onClose={() => setIsQuoteModalOpen(false)}
+        initialCategory={selectedModalCategory}
+      />
+
+      {/* Speed Dial / Floating WhatsApp & Phone Bar */}
+      <FloatingActions onOpenQuoteModal={() => handleOpenQuoteModal()} />
+    </div>
+  );
+}
