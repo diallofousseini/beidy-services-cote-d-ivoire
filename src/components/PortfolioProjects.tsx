@@ -109,10 +109,6 @@ export const PortfolioProjects: React.FC = () => {
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
           <div>
-            <div className="inline-flex items-center gap-2 bg-[#EFF6FF] text-[#2563EB] font-bold text-xs px-3.5 py-1.5 rounded-full uppercase tracking-wider mb-3 border border-[#2563EB]/20">
-              <Filter className="w-3.5 h-3.5" />
-              <span>Chantiers & Projets Reconnus</span>
-            </div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 font-serif-heading">
               Nos Réalisations en Côte d'Ivoire
             </h2>

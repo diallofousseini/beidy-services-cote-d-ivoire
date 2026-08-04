@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Logo } from './Logo';
-import { Phone, Mail, MapPin, Send, MessageSquare, CheckCircle2, Clock, Globe, ShieldCheck } from 'lucide-react';
+import { Phone, Mail, MapPin, Send, MessageSquare, CheckCircle2, ShieldCheck, ChevronRight, Navigation } from 'lucide-react';
 
 interface ContactFooterProps {
   preFilledData?: { service: string; location: string; message: string } | null;
@@ -32,10 +32,16 @@ export const ContactFooter: React.FC<ContactFooterProps> = ({ preFilledData }) =
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitted(true);
-    setTimeout(() => {
-      // Auto scroll or reset after delay
-    }, 5000);
   };
+
+  const footerLinks = [
+    { name: 'Accueil', href: '#accueil' },
+    { name: 'À Propos de l\'Entreprise', href: '#a-propos' },
+    { name: 'Nos Services & Expertises', href: '#services' },
+    { name: 'Projets & Réalisations', href: '#realisations' },
+    { name: 'Offres d\'Emploi & Recrutement', href: '#offres-emploi' },
+    { name: 'Contact & Visite de Chantier', href: '#contact' },
+  ];
 
   return (
     <footer id="contact" className="bg-[#111827] text-white pt-20 pb-12 relative overflow-hidden">
@@ -60,7 +66,7 @@ export const ContactFooter: React.FC<ContactFooterProps> = ({ preFilledData }) =
         </div>
 
         {/* Contact Section Grid: 50% Form / 50% Info & Location Map */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-20 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-16 items-start">
           
           {/* Left Form (7 cols) */}
           <div className="lg:col-span-7 bg-white text-gray-900 p-8 sm:p-10 rounded-3xl shadow-2xl border border-gray-200">
@@ -235,7 +241,7 @@ export const ContactFooter: React.FC<ContactFooterProps> = ({ preFilledData }) =
                 <div className="flex items-start gap-3">
                   <div className="w-2 h-2 rounded-full bg-[#2E9D62] mt-2 shrink-0" />
                   <div>
-                    <strong className="text-white block">Adresse Geographique :</strong>
+                    <strong className="text-white block">Adresse Géographique :</strong>
                     Cocody / Abatta - Abidjan, Côte d'Ivoire
                     <span className="block text-xs text-gray-400 italic">(Non loin du carrefour Abatta)</span>
                   </div>
@@ -287,8 +293,67 @@ export const ContactFooter: React.FC<ContactFooterProps> = ({ preFilledData }) =
 
         </div>
 
+        {/* Footer Navigation Section: Internal Links & Sitelinks structure */}
+        <div className="py-8 border-t border-gray-800 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-xs text-gray-300">
+          <div>
+            <h5 className="font-bold text-white uppercase tracking-wider mb-3 flex items-center gap-1.5 text-sm">
+              <Navigation className="w-4 h-4 text-[#2E9D62]" />
+              <span>Plan du Site (Sitelinks)</span>
+            </h5>
+            <ul className="space-y-2">
+              {footerLinks.map((link) => (
+                <li key={link.name}>
+                  <a
+                    href={link.href}
+                    className="hover:text-emerald-400 transition-colors flex items-center gap-1"
+                  >
+                    <ChevronRight className="w-3 h-3 text-emerald-500" />
+                    <span>{link.name}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h5 className="font-bold text-white uppercase tracking-wider mb-3 text-sm">
+              Secteurs d'Activité
+            </h5>
+            <ul className="space-y-2">
+              <li><a href="#services" className="hover:text-emerald-400 transition-colors">BTP & Construction Immeuble / Villa</a></li>
+              <li><a href="#services" className="hover:text-emerald-400 transition-colors">Forage d'Eau Potable & Analyse Eau</a></li>
+              <li><a href="#services" className="hover:text-emerald-400 transition-colors">Électrification Rurale & Solaires</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h5 className="font-bold text-white uppercase tracking-wider mb-3 text-sm">
+              Carrieres & Recrutement
+            </h5>
+            <ul className="space-y-2">
+              <li><a href="#offres-emploi" className="hover:text-emerald-400 transition-colors font-semibold text-blue-300">Conducteur de Travaux BTP</a></li>
+              <li><a href="#offres-emploi" className="hover:text-emerald-400 transition-colors font-semibold text-blue-300">Technicien Foreur d'Eau</a></li>
+              <li><a href="#offres-emploi" className="hover:text-emerald-400 transition-colors font-semibold text-blue-300">Électricien Réseau Solaire</a></li>
+              <li><a href="#offres-emploi" className="hover:text-emerald-400 transition-colors font-semibold text-blue-300">Candidature Spontanée</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h5 className="font-bold text-white uppercase tracking-wider mb-3 text-sm">
+              Contact Siège Social
+            </h5>
+            <p className="leading-relaxed mb-2">
+              Cocody / Abatta, Carrefour Abatta<br />
+              Abidjan, Côte d'Ivoire
+            </p>
+            <p className="font-bold text-emerald-400">
+              Tel : +225 07 07 17 25 96
+            </p>
+          </div>
+        </div>
+
         {/* Footer Bottom Bar */}
-        <div className="pt-10 border-t border-gray-800 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="pt-8 border-t border-gray-800/80 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-4">
             <Logo variant="compact" />
           </div>
@@ -296,7 +361,7 @@ export const ContactFooter: React.FC<ContactFooterProps> = ({ preFilledData }) =
           <div className="text-xs text-gray-400 text-center md:text-left space-y-1">
             <p>© {new Date().getFullYear()} BEIDY SERVICES CÔTE D'IVOIRE. Tous droits réservés.</p>
             <p className="text-[11px] text-gray-500">
-              Société spécialisée en BTP, Gros Œuvre, Forage d'Eau Potable & Électrification Rurale.
+              Société agréée en BTP, Gros Œuvre, Forage d'Eau Potable & Électrification Rurale.
             </p>
           </div>
 

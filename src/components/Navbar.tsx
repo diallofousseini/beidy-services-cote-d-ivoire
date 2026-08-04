@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Logo } from './Logo';
-import { Phone, MessageSquare, Menu, X, ChevronRight, FileText } from 'lucide-react';
+import { Phone, MessageSquare, Menu, X, ChevronRight, FileText, Briefcase } from 'lucide-react';
 
 interface NavbarProps {
   onOpenQuoteModal: () => void;
@@ -24,8 +24,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenQuoteModal }) => {
 
   const navLinks = [
     { name: 'Accueil', href: '#accueil' },
+    { name: 'À Propos', href: '#a-propos' },
     { name: 'Nos Services', href: '#services' },
-    { name: 'Réalisations', href: '#realisations' },
+    { name: 'Projets', href: '#realisations' },
+    { name: 'Offres d\'emploi', href: '#offres-emploi' },
     { name: 'Contact', href: '#contact' },
   ];
 
@@ -65,29 +67,42 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenQuoteModal }) => {
         </div>
       </div>
 
-      {/* Main Sticky Navbar */}
+      {/* Main Sticky Navbar with SiteNavigationElement microdata for Google Sitelinks */}
       <nav
         className={`transition-all duration-300 ${
           isScrolled
             ? 'header-glass shadow-lg py-2.5 border-b border-gray-200'
             : 'bg-white/95 backdrop-blur-md py-3.5 border-b border-gray-100'
         }`}
+        aria-label="Navigation principale"
+        itemScope
+        itemType="https://schema.org/SiteNavigationElement"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           {/* Logo Brand */}
-          <a href="#accueil" className="flex items-center group">
+          <a href="#accueil" className="flex items-center group" itemProp="url">
             <Logo variant="compact" />
           </a>
 
           {/* Desktop Navigation Links */}
-          <div className="hidden lg:flex items-center gap-8 xl:gap-10">
+          <div className="hidden lg:flex items-center gap-6 xl:gap-8">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="text-sm lg:text-base font-bold text-gray-800 hover:text-[#2E9D62] transition-colors py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-[#2563EB] hover:after:w-full after:transition-all after:duration-300 tracking-wide"
+                itemProp="url"
+                className={`text-sm xl:text-base font-bold transition-colors py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 hover:after:w-full after:transition-all after:duration-300 tracking-wide ${
+                  link.href === '#offres-emploi'
+                    ? 'text-[#2563EB] hover:text-[#1D4ED8] after:bg-[#2563EB]'
+                    : 'text-gray-800 hover:text-[#2E9D62] after:bg-[#2E9D62]'
+                }`}
               >
-                {link.name}
+                <span itemProp="name">{link.name}</span>
+                {link.href === '#offres-emploi' && (
+                  <span className="ml-1 inline-flex items-center px-1.5 py-0.5 rounded-full text-[10px] font-extrabold bg-blue-100 text-[#2563EB]">
+                    Recrutement
+                  </span>
+                )}
               </a>
             ))}
           </div>
@@ -131,10 +146,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenQuoteModal }) => {
                 <a
                   key={link.name}
                   href={link.href}
+                  itemProp="url"
                   onClick={() => setMobileMenuOpen(false)}
                   className="px-3 py-2.5 rounded-md text-base font-semibold text-gray-800 hover:text-[#2E9D62] hover:bg-[#EBF7F0] transition-colors flex items-center justify-between"
                 >
-                  <span>{link.name}</span>
+                  <span itemProp="name">{link.name}</span>
                   <ChevronRight className="w-4 h-4 text-gray-400" />
                 </a>
               ))}

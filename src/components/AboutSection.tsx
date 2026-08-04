@@ -8,10 +8,6 @@ export const AboutSection: React.FC = () => {
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 bg-[#EBF7F0] text-[#2E9D62] font-bold text-xs px-3.5 py-1.5 rounded-full uppercase tracking-wider mb-3 border border-[#2E9D62]/20">
-            <Building2 className="w-3.5 h-3.5" />
-            <span>À Propos de l'Entreprise</span>
-          </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 font-serif-heading">
             BEIDY SERVICES CÔTE D'IVOIRE
           </h2>

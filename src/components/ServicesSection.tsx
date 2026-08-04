@@ -125,9 +125,6 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 bg-[#EBF7F0] text-[#2E9D62] font-bold text-xs px-3.5 py-1.5 rounded-full uppercase tracking-wider mb-4 border border-[#2E9D62]/20">
-            <span>Savoir-Faire Certifié en Côte d'Ivoire</span>
-          </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 tracking-tight mb-4 font-serif-heading">
             Nos Domaines d'Expertise
           </h2>

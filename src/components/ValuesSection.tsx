@@ -44,9 +44,6 @@ export const ValuesSection: React.FC = () => {
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 bg-white text-[#2E9D62] font-bold text-xs px-3.5 py-1.5 rounded-full uppercase tracking-wider mb-3 border border-gray-200 shadow-sm">
-            <span>Piliers de notre Excellence</span>
-          </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 font-serif-heading">
             Nos Valeurs & Engagements
           </h2>

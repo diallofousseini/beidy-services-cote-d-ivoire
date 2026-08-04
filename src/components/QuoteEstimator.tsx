@@ -140,7 +140,7 @@ export const QuoteEstimator: React.FC<QuoteEstimatorProps> = ({ onPreFillContact
   };
 
   return (
-    <section id="devis-estimation" className="py-20 bg-gradient-to-b from-white via-[#F8F9FA] to-gray-100 border-t border-b border-gray-200">
+    <section id="estimateur-devis" className="py-20 bg-gradient-to-b from-white via-[#F8F9FA] to-gray-100 border-t border-b border-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}

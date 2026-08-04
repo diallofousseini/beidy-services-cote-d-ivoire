@@ -5,11 +5,12 @@ import { ServicesSection } from './components/ServicesSection';
 import { DirectorMessage } from './components/DirectorMessage';
 import { ValuesSection } from './components/ValuesSection';
 import { PortfolioProjects } from './components/PortfolioProjects';
-import { QuoteEstimator } from './components/QuoteEstimator';
 import { AboutSection } from './components/AboutSection';
+import { CareersSection } from './components/CareersSection';
 import { ContactFooter } from './components/ContactFooter';
 import { QuoteModal } from './components/QuoteModal';
 import { FloatingActions } from './components/FloatingActions';
+import { Breadcrumb } from './components/Breadcrumb';
 
 export default function App() {
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
@@ -41,32 +42,37 @@ export default function App() {
       {/* Sticky Header Navbar */}
       <Navbar onOpenQuoteModal={() => handleOpenQuoteModal()} />
 
+      {/* Structured SEO Breadcrumb Navigation Bar */}
+      <div className="pt-24 sm:pt-28">
+        <Breadcrumb />
+      </div>
+
       {/* Main Content Sections */}
       <main>
         {/* Section 1: Hero Carousel / Showcase */}
         <Hero onOpenQuoteModal={() => handleOpenQuoteModal()} />
 
-        {/* Section 2: Nos Domaines d'Expertise (3 Cards Grid + Modal Details) */}
+        {/* Section 2: À Propos */}
+        <AboutSection />
+
+        {/* Section 3: Nos Domaines d'Expertise */}
         <ServicesSection
           onSelectServiceForQuote={(cat) => handleOpenQuoteModal(cat)}
         />
 
-        {/* Section 3: Le Mot du Directeur Général (M. Hassane Barry) */}
+        {/* Section 4: Le Mot du Directeur Général (M. Hassane Barry) */}
         <DirectorMessage />
 
-        {/* Section 4: Nos Valeurs & Engagements */}
+        {/* Section 5: Nos Valeurs & Engagements */}
         <ValuesSection />
 
-        {/* Section 5: Nos Réalisations en Côte d'Ivoire */}
+        {/* Section 6: Nos Réalisations en Côte d'Ivoire (Projets) */}
         <PortfolioProjects />
 
-        {/* Section 6: Calculateur / Estimateur de Devis en Ligne */}
-        <QuoteEstimator onPreFillContactForm={handlePreFillContact} />
+        {/* Section 7: Offres d'emploi & Carrières (Recrutement) */}
+        <CareersSection />
 
-        {/* Section 7: À Propos */}
-        <AboutSection />
-
-        {/* Section 8: Formulaire de Contact & Footer */}
+        {/* Section 9: Formulaire de Contact & Footer */}
         <ContactFooter preFilledData={contactPreFill} />
       </main>
 

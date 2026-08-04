@@ -58,12 +58,6 @@ export const DirectorMessage: React.FC = () => {
 
           {/* Right Side: Message & Quote (7 columns) */}
           <div className="lg:col-span-7 space-y-6">
-            
-            <div className="inline-flex items-center gap-2 bg-[#EFF6FF] text-[#2563EB] font-bold text-xs px-3.5 py-1.5 rounded-full uppercase tracking-wider border border-[#2563EB]/20">
-              <Sparkles className="w-3.5 h-3.5 text-[#2563EB]" />
-              <span>Vision Leadership</span>
-            </div>
-
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 font-serif-heading leading-tight">
               Le Mot du Directeur Général
             </h2>
