@@ -59,32 +59,19 @@ export const ContactFooter: React.FC<ContactFooterProps> = ({ preFilledData }) =
           {/* 2-Column Responsive Layout */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-stretch">
             
-            {/* Colonne Gauche : Google Maps Interactive */}
-            <div className="bg-gray-50 p-6 sm:p-8 rounded-3xl border border-gray-200 shadow-md flex flex-col justify-between h-full min-h-[460px]">
-              <div className="mb-4">
-                <h3 className="font-serif-heading text-xl font-extrabold text-gray-900 flex items-center gap-2 mb-1">
-                  <MapPin className="w-5 h-5 text-[#2E9D62]" />
-                  <span>Localisation du Siège Social</span>
-                </h3>
-                <p className="text-xs sm:text-sm text-gray-600">
-                  Cocody / Abatta (près du carrefour Abatta), Abidjan, Côte d'Ivoire
-                </p>
-              </div>
-
-              {/* Interactive Google Map Iframe */}
-              <div className="flex-1 w-full min-h-[360px] rounded-2xl overflow-hidden shadow-sm border border-gray-200 relative">
-                <iframe
-                  title="Localisation BEIDY SERVICES Abidjan Cocody Abatta"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15888.654874409395!2d-3.9554000!3d5.3620000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNcKwMjEnNDMuMiJOIDPCsDU3JzE5LjQiVw!5e0!3m2!1sfr!2sci!4v1700000000000!5m2!1sfr!2sci"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen={false}
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  className="w-full h-full min-h-[360px] rounded-2xl"
-                />
-              </div>
+            {/* Colonne Gauche : Google Maps Interactive Full Height (Plus Code: 935C+G6 Abidjan) */}
+            <div className="w-full h-full min-h-[450px] rounded-3xl overflow-hidden border border-gray-200 shadow-md relative bg-gray-100">
+              <iframe
+                title="Localisation Siège Social BEIDY SERVICES - 935C+G6 Abidjan"
+                src="https://maps.google.com/maps?q=935C%2BG6+Abidjan,+C%C3%B4te+d%27Ivoire&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen={false}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="w-full h-full min-h-[450px] border-0"
+              />
             </div>
 
             {/* Colonne Droite : Formulaire de Contact */}
