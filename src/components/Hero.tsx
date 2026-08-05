@@ -48,7 +48,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenQuoteModal }) => {
   }, [slides.length]);
 
   return (
-    <section id="accueil" className="relative pt-28 sm:pt-32 pb-16 lg:pb-24 bg-[#1A1A1A] text-white overflow-hidden">
+    <section id="accueil" className="relative pt-20 sm:pt-24 pb-12 lg:pb-20 bg-[#1A1A1A] text-white overflow-hidden">
       {/* Background Slideshow with Smooth Overlay */}
       {slides.map((slide, idx) => (
         <div
@@ -63,14 +63,14 @@ export const Hero: React.FC<HeroProps> = ({ onOpenQuoteModal }) => {
             className="w-full h-full object-cover scale-105 animate-pulse duration-[10000ms]"
             referrerPolicy="no-referrer"
           />
-          {/* Multi-stage High Contrast Gradient Overlay for Corporate Readability */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#111827]/95 via-[#111827]/85 to-[#111827]/60" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#111827] via-transparent to-[#111827]/40" />
+          {/* Lightened Gradient Overlay for High Image Vibrancy & Clarity */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/35 to-black/10" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#111827]/75 via-transparent to-black/20" />
         </div>
       ))}
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl pt-6 pb-10">
+        <div className="max-w-3xl pt-4 pb-8">
           
           {/* Top Tagline Pill */}
           <div className="inline-flex items-center gap-2 bg-[#2E9D62]/90 backdrop-blur-md text-white text-xs sm:text-sm font-bold px-4 py-1.5 rounded-full border border-green-400/40 shadow-lg mb-6 tracking-wide uppercase">
@@ -89,7 +89,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenQuoteModal }) => {
           </p>
 
           {/* Action CTAs */}
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-12">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-10">
             <button
               onClick={onOpenQuoteModal}
               className="bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-bold text-base px-7 py-4 rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center justify-center gap-3 transform hover:-translate-y-0.5 active:translate-y-0"
@@ -108,7 +108,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenQuoteModal }) => {
           </div>
 
           {/* Slide Indicator Dots */}
-          <div className="flex items-center gap-2.5 mb-8">
+          <div className="flex items-center gap-2.5 mb-6">
             {slides.map((_, i) => (
               <button
                 key={i}
@@ -123,37 +123,40 @@ export const Hero: React.FC<HeroProps> = ({ onOpenQuoteModal }) => {
 
         </div>
 
-        {/* Feature Highlights Grid at the bottom of Hero */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 border-t border-white/15">
-          <div className="bg-white/10 backdrop-blur-md p-4 rounded-xl border border-white/10 flex items-center gap-4 hover:border-[#2E9D62]/50 transition-colors">
-            <div className="w-12 h-12 rounded-lg bg-[#2E9D62] flex items-center justify-center text-white shrink-0 shadow-md">
-              <Building2 className="w-6 h-6" />
+        {/* Green Brush-Stroke Stats Banner Grid (Conforme Modèle Capture d'Écran) */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 pt-6 border-t border-white/15">
+          {[
+            { value: '148M$', label: '2022-2029' },
+            { value: '05', label: 'Composantes' },
+            { value: '16', label: 'Forêts classées' },
+            { value: '04', label: 'Parcs et réserves' },
+          ].map((stat, idx) => (
+            <div
+              key={idx}
+              className="relative flex flex-col items-center justify-center py-7 px-4 min-h-[120px] sm:min-h-[140px] group transform hover:scale-105 transition-all duration-300 select-none"
+            >
+              {/* Green Paint Brush Banner SVG Background */}
+              <svg
+                className="absolute inset-0 w-full h-full text-[#38B000] drop-shadow-xl filter transition-all duration-300 group-hover:brightness-110"
+                viewBox="0 0 300 140"
+                preserveAspectRatio="none"
+              >
+                <path
+                  fill="currentColor"
+                  d="M14,24 C32,10 68,24 110,14 C152,4 198,20 242,10 C278,0 295,16 300,32 C306,50 289,70 296,94 C303,118 284,132 260,136 C225,142 180,130 138,137 C96,144 54,132 26,136 C6,140 -2,120 1,96 C4,72 -2,40 14,24 Z"
+                />
+              </svg>
+              {/* Stat text content centered on top of green brush stroke */}
+              <div className="relative z-10 text-center px-2">
+                <span className="block font-black text-2xl sm:text-3xl lg:text-4xl text-white tracking-tight leading-none drop-shadow-md">
+                  {stat.value}
+                </span>
+                <span className="block text-xs sm:text-sm font-bold text-white/95 tracking-wide mt-1 sm:mt-1.5">
+                  {stat.label}
+                </span>
+              </div>
             </div>
-            <div>
-              <h3 className="font-bold text-white text-sm sm:text-base">BTP & Gros Œuvre</h3>
-              <p className="text-xs text-gray-300">Constructions solides, villas & immeubles</p>
-            </div>
-          </div>
-
-          <div className="bg-white/10 backdrop-blur-md p-4 rounded-xl border border-white/10 flex items-center gap-4 hover:border-[#2E9D62]/50 transition-colors">
-            <div className="w-12 h-12 rounded-lg bg-[#2563EB] flex items-center justify-center text-white shrink-0 shadow-md">
-              <Droplets className="w-6 h-6" />
-            </div>
-            <div>
-              <h3 className="font-bold text-white text-sm sm:text-base">Forage d'Eau Potable</h3>
-              <p className="text-xs text-gray-300">Eau propre garantie toute l'année</p>
-            </div>
-          </div>
-
-          <div className="bg-white/10 backdrop-blur-md p-4 rounded-xl border border-white/10 flex items-center gap-4 hover:border-[#2E9D62]/50 transition-colors">
-            <div className="w-12 h-12 rounded-lg bg-[#2E9D62] flex items-center justify-center text-white shrink-0 shadow-md">
-              <Zap className="w-6 h-6" />
-            </div>
-            <div>
-              <h3 className="font-bold text-white text-sm sm:text-base">Électrification Rurale</h3>
-              <p className="text-xs text-gray-300">Réseaux électriques & pompage solaire</p>
-            </div>
-          </div>
+          ))}
         </div>
 
       </div>

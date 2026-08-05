@@ -23,11 +23,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenQuoteModal }) => {
   }, []);
 
   const navLinks = [
-    { name: 'Accueil', href: '#accueil' },
-    { name: 'À Propos', href: '#a-propos' },
-    { name: 'Nos Services', href: '#services' },
-    { name: 'Projets', href: '#realisations' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'ACCUEIL', href: '#accueil' },
+    { name: 'À PROPOS', href: '#a-propos' },
+    { name: 'NOS SERVICES', href: '#services' },
+    { name: 'PROJETS', href: '#realisations' },
+    { name: 'CONTACT', href: '#contact' },
   ];
 
   return (
@@ -36,8 +36,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenQuoteModal }) => {
       <nav
         className={`transition-all duration-300 ${
           isScrolled
-            ? 'bg-white/90 backdrop-blur-2xl shadow-md py-3 border-b border-gray-200/60'
-            : 'bg-white/75 backdrop-blur-xl shadow-sm py-4 border-b border-white/30'
+            ? 'bg-white/85 backdrop-blur-2xl shadow-lg py-1.5 sm:py-2 border-b border-white/60'
+            : 'bg-white/45 backdrop-blur-2xl shadow-md py-2 sm:py-2.5 border-b border-white/40'
         }`}
         aria-label="Navigation principale"
         itemScope
@@ -56,7 +56,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenQuoteModal }) => {
                 key={link.name}
                 href={link.href}
                 itemProp="url"
-                className="text-sm xl:text-base font-bold text-gray-800 hover:text-[#2E9D62] transition-colors py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 hover:after:w-full after:bg-[#2E9D62] after:transition-all after:duration-300 tracking-wide"
+                className="text-xs xl:text-sm font-extrabold text-gray-900 hover:text-[#2E9D62] transition-colors py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 hover:after:w-full after:bg-[#2E9D62] after:transition-all after:duration-300 tracking-wider uppercase"
               >
                 <span itemProp="name">{link.name}</span>
               </a>

@@ -9,7 +9,6 @@ import { AboutSection } from './components/AboutSection';
 import { ContactFooter } from './components/ContactFooter';
 import { QuoteModal } from './components/QuoteModal';
 import { FloatingActions } from './components/FloatingActions';
-import { Breadcrumb } from './components/Breadcrumb';
 
 export default function App() {
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
@@ -40,11 +39,6 @@ export default function App() {
     <div className="min-h-screen bg-[#F8F9FA] text-[#1A1A1A] font-sans antialiased selection:bg-[#2E9D62] selection:text-white">
       {/* Sticky Header Navbar */}
       <Navbar onOpenQuoteModal={() => handleOpenQuoteModal()} />
-
-      {/* Structured SEO Breadcrumb Navigation Bar */}
-      <div className="pt-16 sm:pt-20">
-        <Breadcrumb />
-      </div>
 
       {/* Main Content Sections */}
       <main>
