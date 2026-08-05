@@ -6,7 +6,6 @@ import { DirectorMessage } from './components/DirectorMessage';
 import { ValuesSection } from './components/ValuesSection';
 import { PortfolioProjects } from './components/PortfolioProjects';
 import { AboutSection } from './components/AboutSection';
-import { CareersSection } from './components/CareersSection';
 import { ContactFooter } from './components/ContactFooter';
 import { QuoteModal } from './components/QuoteModal';
 import { FloatingActions } from './components/FloatingActions';
@@ -43,7 +42,7 @@ export default function App() {
       <Navbar onOpenQuoteModal={() => handleOpenQuoteModal()} />
 
       {/* Structured SEO Breadcrumb Navigation Bar */}
-      <div className="pt-24 sm:pt-28">
+      <div className="pt-16 sm:pt-20">
         <Breadcrumb />
       </div>
 
@@ -69,10 +68,7 @@ export default function App() {
         {/* Section 6: Nos Réalisations en Côte d'Ivoire (Projets) */}
         <PortfolioProjects />
 
-        {/* Section 7: Offres d'emploi & Carrières (Recrutement) */}
-        <CareersSection />
-
-        {/* Section 9: Formulaire de Contact & Footer */}
+        {/* Section 7: Formulaire de Contact & Footer */}
         <ContactFooter preFilledData={contactPreFill} />
       </main>
 

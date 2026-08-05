@@ -27,52 +27,17 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenQuoteModal }) => {
     { name: 'À Propos', href: '#a-propos' },
     { name: 'Nos Services', href: '#services' },
     { name: 'Projets', href: '#realisations' },
-    { name: 'Offres d\'emploi', href: '#offres-emploi' },
     { name: 'Contact', href: '#contact' },
   ];
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-      {/* Top Banner Contact Info */}
-      <div className="bg-[#1F7A4A] text-white text-xs py-2 px-4 border-b border-white/10 hidden sm:block">
-        <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <div className="flex items-center gap-6">
-            <span className="flex items-center gap-1.5 font-medium">
-              <span className="w-2 h-2 rounded-full bg-[#2563EB] animate-ping" />
-              Siège Social: Cocody / Abatta (près du carrefour Abatta), Abidjan
-            </span>
-            <span className="hidden md:inline-block text-white/50">|</span>
-            <span className="hidden md:inline flex items-center gap-1 text-white/90 font-medium">
-              Horaires: Lun - Sam: 07h30 - 18h30
-            </span>
-          </div>
-          <div className="flex items-center gap-4">
-            <a
-              href="tel:0707172596"
-              className="flex items-center gap-1.5 hover:text-green-200 transition-colors font-bold text-yellow-300"
-            >
-              <Phone className="w-3.5 h-3.5" />
-              <span>07 07 17 25 96</span>
-            </a>
-            <a
-              href="https://wa.me/2250707172596?text=Bonjour%20BEIDY%20SERVICES,%20je%20souhaite%20une%20information%20concernant%20vos%20services."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-1.5 bg-green-500/30 hover:bg-green-500/50 px-2.5 py-0.5 rounded-full transition-colors font-medium border border-green-300/30"
-            >
-              <MessageSquare className="w-3.5 h-3.5 text-green-300" />
-              <span>WhatsApp Direct</span>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      {/* Main Sticky Navbar with SiteNavigationElement microdata for Google Sitelinks */}
+      {/* Main Sticky Glassmorphism Navbar */}
       <nav
         className={`transition-all duration-300 ${
           isScrolled
-            ? 'header-glass shadow-lg py-2.5 border-b border-gray-200'
-            : 'bg-white/95 backdrop-blur-md py-3.5 border-b border-gray-100'
+            ? 'bg-white/90 backdrop-blur-2xl shadow-md py-3 border-b border-gray-200/60'
+            : 'bg-white/75 backdrop-blur-xl shadow-sm py-4 border-b border-white/30'
         }`}
         aria-label="Navigation principale"
         itemScope
@@ -91,18 +56,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenQuoteModal }) => {
                 key={link.name}
                 href={link.href}
                 itemProp="url"
-                className={`text-sm xl:text-base font-bold transition-colors py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 hover:after:w-full after:transition-all after:duration-300 tracking-wide ${
-                  link.href === '#offres-emploi'
-                    ? 'text-[#2563EB] hover:text-[#1D4ED8] after:bg-[#2563EB]'
-                    : 'text-gray-800 hover:text-[#2E9D62] after:bg-[#2E9D62]'
-                }`}
+                className="text-sm xl:text-base font-bold text-gray-800 hover:text-[#2E9D62] transition-colors py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 hover:after:w-full after:bg-[#2E9D62] after:transition-all after:duration-300 tracking-wide"
               >
                 <span itemProp="name">{link.name}</span>
-                {link.href === '#offres-emploi' && (
-                  <span className="ml-1 inline-flex items-center px-1.5 py-0.5 rounded-full text-[10px] font-extrabold bg-blue-100 text-[#2563EB]">
-                    Recrutement
-                  </span>
-                )}
               </a>
             ))}
           </div>

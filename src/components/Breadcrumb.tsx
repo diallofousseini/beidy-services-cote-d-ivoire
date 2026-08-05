@@ -16,7 +16,6 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = ({
     { name: 'À Propos', href: '#a-propos' },
     { name: 'Services BTP & Forage', href: '#services' },
     { name: 'Projets & Réalisations', href: '#realisations' },
-    { name: 'Offres d\'emploi', href: '#offres-emploi' },
     { name: 'Contact & Devis', href: '#contact' },
   ]
 }) => {

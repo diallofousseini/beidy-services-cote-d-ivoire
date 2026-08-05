@@ -2,9 +2,9 @@
 
 @layer base {
   :root {
-    --font-serif: 'Playfair Display', Georgia, serif;
-    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-    --font-stencil: 'Cinzel', 'Playfair Display', serif;
+    --font-sans: 'Outfit', 'Century Gothic', 'ITC Avant Garde Gothic', 'Avant Garde', system-ui, sans-serif;
+    --font-serif: 'Outfit', 'Century Gothic', 'ITC Avant Garde Gothic', 'Avant Garde', sans-serif;
+    --font-stencil: 'Outfit', sans-serif;
     
     /* Brand palette extracted directly from company logo and posters */
     --color-emerald: #2E9D62;
