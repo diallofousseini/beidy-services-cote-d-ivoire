@@ -24,7 +24,7 @@ export const Logo: React.FC<LogoProps> = ({ variant = 'full', className = '' }) 
         <img
           src="/images/Vrailogo.png"
           alt="BEIDY SERVICES CÔTE D'IVOIRE"
-          className="h-12 sm:h-14 w-auto object-contain bg-white/95 p-1 rounded-xl shadow-md hover:scale-[1.02] transition-transform duration-300"
+          className="h-24 sm:h-28 lg:h-32 w-auto object-contain bg-white/95 p-2 rounded-2xl shadow-xl hover:scale-[1.02] transition-transform duration-300"
         />
       </div>
     );

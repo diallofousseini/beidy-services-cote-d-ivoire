@@ -12,7 +12,7 @@ export const AboutSection: React.FC = () => {
             BEIDY SERVICES CÔTE D'IVOIRE
           </h2>
           <p className="text-gray-600 text-sm sm:text-base mt-3 leading-relaxed">
-            Un acteur de référence dédié à la construction d'infrastructures durables, à l'accès universel à l'eau potable et à l'électrification rurale.
+            Un acteur de référence dédié à la construction d'infrastructures durables, à l'accès universel à l'eau potable et à l'import-export d'équipements industriels.
           </p>
         </div>
 
@@ -76,9 +76,9 @@ export const AboutSection: React.FC = () => {
                   3
                 </div>
                 <div>
-                  <h5 className="font-bold text-gray-900 text-sm">Pôle Énergie & Électrification</h5>
+                  <h5 className="font-bold text-gray-900 text-sm">Pôle Import-Export & Logistique</h5>
                   <p className="text-xs text-gray-600 mt-0.5">
-                    Réseaux électriques HTA/BTA, éclairage public solaire, mini-réseaux ruraux.
+                    Approvisionnement en matériaux certifiés, outillage industriel BTP, tubages et pompes hydrauliques.
                   </p>
                 </div>
               </div>

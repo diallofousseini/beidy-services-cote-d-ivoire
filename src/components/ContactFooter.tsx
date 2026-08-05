@@ -176,19 +176,19 @@ export const ContactFooter: React.FC<ContactFooterProps> = ({ preFilledData }) =
       </section>
 
       {/* Dark Footer Container */}
-      <footer className="bg-[#111827] text-white pt-12 pb-10 relative overflow-hidden">
+      <footer className="bg-[#111827] text-white pt-8 pb-6 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* Redesigned 4-Column Footer */}
-        <div className="pt-12 pb-10 border-t border-gray-800 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 text-sm text-gray-300">
+        <div className="pt-6 pb-6 border-t border-gray-800 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-sm text-gray-300">
           
-          {/* Colonne 1 : Branding */}
+          {/* Colonne 1 : Branding avec Logo 2x */}
           <div className="space-y-4">
             <a href="#accueil" className="inline-block">
               <Logo variant="white" />
             </a>
-            <p className="text-xs sm:text-sm text-gray-400 leading-relaxed">
-              BEIDY SERVICES CÔTE D'IVOIRE est une entreprise majeure spécialisée en BTP & Gros Œuvre, Forage d'eau potable et Électrification rurale. Nous concrétisons vos projets avec rigueur, sécurité et durabilité.
+            <p className="text-xs sm:text-sm text-gray-400 leading-relaxed pt-2">
+              BEIDY SERVICES CÔTE D'IVOIRE est une entreprise majeure spécialisée en BTP & Gros Œuvre, Forage d'eau potable et Import-Export d'équipements industriels. Nous concrétisons vos projets avec rigueur, sécurité et durabilité.
             </p>
           </div>
 
@@ -239,7 +239,7 @@ export const ContactFooter: React.FC<ContactFooterProps> = ({ preFilledData }) =
             <ul className="space-y-3 text-xs sm:text-sm text-gray-300">
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-[#2E9D62] shrink-0 mt-0.5" />
-                <span>Cocody / Abatta (près du carrefour Abatta), Abidjan, Côte d'Ivoire</span>
+                <span>06 BP 101 Cidex, 06, Abidjan (Plus Code: 935C+G6 Abidjan), Côte d'Ivoire</span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-[#2563EB] shrink-0" />
@@ -307,10 +307,10 @@ export const ContactFooter: React.FC<ContactFooterProps> = ({ preFilledData }) =
         </div>
 
         {/* Footer Bottom Copyright Bar */}
-        <div className="pt-8 border-t border-gray-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-400">
+        <div className="pt-4 border-t border-gray-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-400">
           <p>© {new Date().getFullYear()} BEIDY SERVICES CÔTE D'IVOIRE. Tous droits réservés.</p>
           <p className="text-[11px] text-gray-500">
-            Société agréée en BTP, Gros Œuvre, Forage d'Eau Potable & Électrification Rurale.
+            Société agréée en BTP, Gros Œuvre, Forage d'Eau Potable & Import-Export.
           </p>
         </div>
 

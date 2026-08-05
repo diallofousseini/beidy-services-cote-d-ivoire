@@ -90,20 +90,21 @@ export const Hero: React.FC<HeroProps> = ({ onOpenQuoteModal }) => {
 
           {/* Action CTAs */}
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-10">
-            <button
-              onClick={onOpenQuoteModal}
-              className="bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-bold text-base px-7 py-4 rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center justify-center gap-3 transform hover:-translate-y-0.5 active:translate-y-0"
-              id="hero-cta-devis"
-            >
-              <span>Demander un devis gratuit</span>
-              <ArrowRight className="w-5 h-5 text-blue-200" />
-            </button>
-
             <a
               href="#services"
-              className="bg-white/10 hover:bg-white/20 text-white font-bold text-base px-7 py-4 rounded-xl backdrop-blur-md border border-white/25 transition-all duration-300 flex items-center justify-center gap-2 text-center"
+              className="bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-bold text-base px-7 py-4 rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center justify-center gap-3 transform hover:-translate-y-0.5 active:translate-y-0"
+              id="hero-cta-services"
             >
-              <span>Découvrir nos solutions</span>
+              <span>Nos services</span>
+              <ArrowRight className="w-5 h-5 text-blue-200" />
+            </a>
+
+            <a
+              href="#contact"
+              className="bg-white/10 hover:bg-white/20 text-white font-bold text-base px-7 py-4 rounded-xl backdrop-blur-md border border-white/25 transition-all duration-300 flex items-center justify-center gap-2 text-center"
+              id="hero-cta-contact"
+            >
+              <span>Contact</span>
             </a>
           </div>
 
@@ -114,7 +115,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenQuoteModal }) => {
                 key={i}
                 onClick={() => setCurrentSlide(i)}
                 className={`h-2.5 rounded-full transition-all duration-300 ${
-                  i === currentSlide ? 'w-10 bg-[#2E9D62]' : 'w-2.5 bg-white/40 hover:bg-white/70'
+                  i === currentSlide ? 'w-10 bg-[#00B4D8]' : 'w-2.5 bg-white/40 hover:bg-white/70'
                 }`}
                 aria-label={`Aller au slide ${i + 1}`}
               />
@@ -123,21 +124,21 @@ export const Hero: React.FC<HeroProps> = ({ onOpenQuoteModal }) => {
 
         </div>
 
-        {/* Green Brush-Stroke Stats Banner Grid (Conforme Modèle Capture d'Écran) */}
+        {/* Light Water Blue Brush-Stroke Stats Banner Grid */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 pt-6 border-t border-white/15">
           {[
-            { value: '148M$', label: '2022-2029' },
-            { value: '05', label: 'Composantes' },
-            { value: '16', label: 'Forêts classées' },
-            { value: '04', label: 'Parcs et réserves' },
+            { value: '8+', label: "Années d'Expertise" },
+            { value: '150+', label: 'Projets Réalisés' },
+            { value: '+25', label: 'Sites d’intervention' },
+            { value: '3', label: "Secteurs d'Activités" },
           ].map((stat, idx) => (
             <div
               key={idx}
               className="relative flex flex-col items-center justify-center py-7 px-4 min-h-[120px] sm:min-h-[140px] group transform hover:scale-105 transition-all duration-300 select-none"
             >
-              {/* Green Paint Brush Banner SVG Background */}
+              {/* Light Water Blue Paint Brush Banner SVG Background */}
               <svg
-                className="absolute inset-0 w-full h-full text-[#38B000] drop-shadow-xl filter transition-all duration-300 group-hover:brightness-110"
+                className="absolute inset-0 w-full h-full text-[#00B4D8] drop-shadow-xl filter transition-all duration-300 group-hover:brightness-110"
                 viewBox="0 0 300 140"
                 preserveAspectRatio="none"
               >
@@ -146,7 +147,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenQuoteModal }) => {
                   d="M14,24 C32,10 68,24 110,14 C152,4 198,20 242,10 C278,0 295,16 300,32 C306,50 289,70 296,94 C303,118 284,132 260,136 C225,142 180,130 138,137 C96,144 54,132 26,136 C6,140 -2,120 1,96 C4,72 -2,40 14,24 Z"
                 />
               </svg>
-              {/* Stat text content centered on top of green brush stroke */}
+              {/* Stat text content centered on top of water blue brush stroke */}
               <div className="relative z-10 text-center px-2">
                 <span className="block font-black text-2xl sm:text-3xl lg:text-4xl text-white tracking-tight leading-none drop-shadow-md">
                   {stat.value}

@@ -124,7 +124,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
                   >
                     <option value="BTP et Gros Œuvre">BTP & Gros Œuvre</option>
                     <option value="Forage d'Eau Potable">Forage d'Eau Potable</option>
-                    <option value="Électrification Rurale & Solaire">Électrification & Solaire</option>
+                    <option value="Import-Export & Logistique">Import-Export & Logistique</option>
                     <option value="Offre Globale Combinée">Offre Globale Combinée</option>
                   </select>
                 </div>

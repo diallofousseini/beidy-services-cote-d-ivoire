@@ -32,18 +32,18 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenQuoteModal }) => {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-      {/* Main Sticky Glassmorphism Navbar */}
+      {/* Main Sticky Glassmorphism Navbar with Reduced Container Width */}
       <nav
         className={`transition-all duration-300 ${
           isScrolled
-            ? 'bg-white/85 backdrop-blur-2xl shadow-lg py-1.5 sm:py-2 border-b border-white/60'
-            : 'bg-white/45 backdrop-blur-2xl shadow-md py-2 sm:py-2.5 border-b border-white/40'
+            ? 'bg-white/80 backdrop-blur-3xl shadow-xl py-1.5 sm:py-2 border-b border-white/60'
+            : 'bg-white/35 backdrop-blur-3xl shadow-xl shadow-black/5 py-2 sm:py-2.5 border-b border-white/50'
         }`}
         aria-label="Navigation principale"
         itemScope
         itemType="https://schema.org/SiteNavigationElement"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           {/* Logo Brand */}
           <a href="#accueil" className="flex items-center group" itemProp="url">
             <Logo variant="compact" />
@@ -56,7 +56,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenQuoteModal }) => {
                 key={link.name}
                 href={link.href}
                 itemProp="url"
-                className="text-xs xl:text-sm font-extrabold text-gray-900 hover:text-[#2E9D62] transition-colors py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 hover:after:w-full after:bg-[#2E9D62] after:transition-all after:duration-300 tracking-wider uppercase"
+                className="text-sm xl:text-base font-black text-gray-900 hover:text-[#2563EB] transition-colors py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 hover:after:w-full after:bg-[#2563EB] after:transition-all after:duration-300 tracking-wider uppercase"
               >
                 <span itemProp="name">{link.name}</span>
               </a>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Building2, Droplets, Zap, ArrowRight, CheckCircle2, ShieldCheck, FileText, X } from 'lucide-react';
+import { Building2, Droplets, Package, ArrowRight, CheckCircle2, ShieldCheck, FileText, X } from 'lucide-react';
 
 import btpImg from '../assets/images/btp_construction_site_1785032246377.jpg';
 import forageImg from '../assets/images/forage_water_rig_1785032220471.jpg';
@@ -7,7 +7,7 @@ import solarImg from '../assets/images/electrification_solar_1785032232054.jpg';
 
 interface ServiceItem {
   id: string;
-  category: 'btp' | 'forage' | 'electrification';
+  category: 'btp' | 'forage' | 'import-export';
   title: string;
   subtitle: string;
   icon: React.ReactNode;
@@ -88,33 +88,32 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
       ]
     },
     {
-      id: 'electrification-rurale',
-      category: 'electrification',
-      title: 'Électrification Rurale & Solaire',
-      subtitle: 'Réseaux HTA/BTA, Éclairage Public & Énergie Solaire',
-      icon: <Zap className="w-7 h-7 text-[#2E9D62]" />,
+      id: 'import-export',
+      category: 'import-export',
+      title: 'Import-Export & Négoce',
+      subtitle: 'Matériaux BTP, Équipements Lourds & Logistique',
+      icon: <Package className="w-7 h-7 text-[#2E9D62]" />,
       image: solarImg,
-      badge: 'Énergie Écologique & Durable',
+      badge: 'Approvisionnement International',
       description:
-        'Apporter l\'énergie au cœur des régions et sécuriser vos installations. BEIDY SERVICES déploie des lignes électriques, des réseaux d\'éclairage public et des solutions solaires autonomes performantes.',
+        'BEIDY SERVICES CÔTE D\'IVOIRE assure l\'importation, l\'exportation, le négoce international et la fourniture d\'équipements de pointe, de pièces détachées et de matériaux certifiés pour vos chantiers de BTP et de Forage.',
       highlights: [
-        'Extension de réseaux électriques HTA / BTA',
-        'Éclairage public solaire autonome pour communes',
-        'Installations photovoltaïques pour sites isolés & fermes',
-        'Pompage solaire agricole sans facture de carburant'
+        'Fourniture de matériels de forage & pièces industrielles',
+        'Importation de matériaux de construction de haute qualité',
+        'Négoce international & équipements de chantier',
+        'Logistique maritime, aérienne & dédouanement'
       ],
       subServices: [
-        'Implantation et levage de pylônes et poteaux béton/bois',
-        'Tirage de câbles, pose de transformateurs et postes HTA/BTA',
-        'Éclairage public à lampadaires solaires LED haut rendement',
-        'Dimensionnement et pose de kits solaires pour maisons & entreprises',
-        'Maintenance préventive et mise aux normes électriques'
+        'Approvisionnement en outillage industriel et machinerie BTP',
+        'Importation de tubages PVC/Acier et pompes hydrauliques certifiées',
+        'Négoce de matériaux et fournitures techniques pour le génie civil',
+        'Gestion de la chaîne logistique, douane et livraison sur site'
       ],
       processSteps: [
-        { title: '1. Étude de Charge', desc: 'Bilan de puissance et cartographie du tracé réseau.' },
-        { title: '2. Génie Électrique', desc: 'Pose des supports, armoires et raccordements de sécurité.' },
-        { title: '3. Dimensionnement Solaire', desc: 'Installation des panneaux haut rendement et onduleurs.' },
-        { title: '4. Recette & Éclairage', desc: 'Tests de tension et mise en fonctionnement continue.' }
+        { title: '1. Sourcing & Négoce', desc: 'Sélection rigoureuse des meilleures usines et fournisseurs internationaux.' },
+        { title: '2. Contrôle Qualité', desc: 'Inspections et certifications des équipements avant expédition.' },
+        { title: '3. Fret & Dédouanement', desc: 'Acheminement sécurisé et accomplissement des formalités douanières.' },
+        { title: '4. Livraison sur Chantier', desc: 'Réception et livraison conforme sur votre site en Côte d\'Ivoire.' }
       ]
     }
   ];
