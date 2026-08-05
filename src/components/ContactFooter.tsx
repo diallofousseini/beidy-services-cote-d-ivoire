@@ -28,10 +28,34 @@ export const ContactFooter: React.FC<ContactFooterProps> = ({ preFilledData }) =
   }, [preFilledData]);
 
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setIsSubmitting(true);
+    try {
+      await fetch("https://formsubmit.co/ajax/beidyservices@gmail.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify({
+          _subject: `Contact Client Site Web - ${formData.fullName}`,
+          Nom_et_Prenom: formData.fullName,
+          Email_Client: formData.email,
+          Telephone: formData.phone,
+          Service: formData.service,
+          Objet: formData.subject || 'Demande via Formulaire',
+          Message: formData.message
+        })
+      });
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setIsSubmitting(false);
+      setSubmitted(true);
+    }
   };
 
   const footerLinks = [
@@ -160,10 +184,11 @@ export const ContactFooter: React.FC<ContactFooterProps> = ({ preFilledData }) =
                   <div className="pt-2">
                     <button
                       type="submit"
-                      className="w-full bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-bold py-4 px-6 rounded-xl shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 text-base transform hover:-translate-y-0.5 active:translate-y-0"
+                      disabled={isSubmitting}
+                      className="w-full bg-[#2563EB] hover:bg-[#1D4ED8] disabled:bg-blue-400 text-white font-bold py-4 px-6 rounded-xl shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 text-base transform hover:-translate-y-0.5 active:translate-y-0"
                     >
                       <Send className="w-5 h-5 text-blue-200" />
-                      <span>Envoyer</span>
+                      <span>{isSubmitting ? 'Envoi en cours...' : 'Envoyer'}</span>
                     </button>
                   </div>
                 </form>
@@ -243,8 +268,8 @@ export const ContactFooter: React.FC<ContactFooterProps> = ({ preFilledData }) =
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-[#2563EB] shrink-0" />
-                <a href="mailto:contact@beidyservices.ci" className="hover:text-white transition-colors">
-                  contact@beidyservices.ci
+                <a href="mailto:beidyservices@gmail.com" className="hover:text-white transition-colors font-semibold">
+                  beidyservices@gmail.com
                 </a>
               </li>
               <li className="flex items-center gap-3">

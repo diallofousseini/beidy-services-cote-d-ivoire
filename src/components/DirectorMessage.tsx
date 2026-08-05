@@ -48,8 +48,8 @@ export const DirectorMessage: React.FC = () => {
               <div className="absolute -top-6 -right-6 bg-[#2E9D62] text-white p-4 rounded-2xl shadow-xl flex items-center gap-2 border-2 border-white animate-float hidden sm:flex">
                 <ShieldCheck className="w-6 h-6 text-emerald-200" />
                 <div className="text-left">
-                  <span className="block text-[10px] uppercase font-bold tracking-wider text-emerald-100">Garantie</span>
-                  <span className="block text-xs font-black">100% Qualité BTP & Eau</span>
+                  <span className="block text-[10px] uppercase font-bold tracking-wider text-emerald-100">Savoir-Faire</span>
+                  <span className="block text-xs font-black">+8 années d'expérience</span>
                 </div>
               </div>
 
@@ -67,7 +67,7 @@ export const DirectorMessage: React.FC = () => {
               <Quote className="w-12 h-12 text-[#2E9D62]/20 absolute top-4 right-4 pointer-events-none" />
               
               <blockquote className="font-serif-heading text-lg sm:text-2xl text-gray-800 font-semibold leading-relaxed italic mb-6">
-                « Notre engagement envers la Côte d'Ivoire repose sur trois piliers : la solidité de nos constructions, l'accès universel à l'eau potable et l'énergie pour chaque foyer. Chez BEIDY SERVICES, nous transformons les défis techniques en moteurs de développement. »
+                « Notre engagement envers nos clients repose sur la solidité de nos constructions, l'accès universel à l'eau potable et l'excellence opérationnelle. Chez BEIDY SERVICES, nous transformons les défis techniques en réussites durables. »
               </blockquote>
 
               <div className="flex items-center justify-between pt-4 border-t border-gray-200/80">
@@ -81,11 +81,6 @@ export const DirectorMessage: React.FC = () => {
                 </div>
               </div>
             </div>
-
-            {/* Additional Text Paragraphs */}
-            <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
-              En tant qu'entreprise dynamique implantée à Abidjan (Cocody Abatta), nous plaçons l'excellence technique et l'intégrité au cœur de chacune de nos opérations. Que ce soit pour bâtir une villa familiale, forer un puit d'eau profonde en zone rurale ou raccorder un village au réseau électrique, nos équipes mobilisent un matériel de pointe et un savoir-faire rigoureux.
-            </p>
 
             {/* Key Commitment Pillars */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">

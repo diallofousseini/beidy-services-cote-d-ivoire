@@ -115,7 +115,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenQuoteModal }) => {
                 key={i}
                 onClick={() => setCurrentSlide(i)}
                 className={`h-2.5 rounded-full transition-all duration-300 ${
-                  i === currentSlide ? 'w-10 bg-[#00B4D8]' : 'w-2.5 bg-white/40 hover:bg-white/70'
+                  i === currentSlide ? 'w-10 bg-[#2563EB]' : 'w-2.5 bg-white/40 hover:bg-white/70'
                 }`}
                 aria-label={`Aller au slide ${i + 1}`}
               />
@@ -124,7 +124,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenQuoteModal }) => {
 
         </div>
 
-        {/* Light Water Blue Brush-Stroke Stats Banner Grid */}
+        {/* Royal Blue Brush-Stroke Stats Banner Grid */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 pt-6 border-t border-white/15">
           {[
             { value: '8+', label: "Années d'Expertise" },
@@ -136,9 +136,9 @@ export const Hero: React.FC<HeroProps> = ({ onOpenQuoteModal }) => {
               key={idx}
               className="relative flex flex-col items-center justify-center py-7 px-4 min-h-[120px] sm:min-h-[140px] group transform hover:scale-105 transition-all duration-300 select-none"
             >
-              {/* Light Water Blue Paint Brush Banner SVG Background */}
+              {/* Royal Blue Paint Brush Banner SVG Background */}
               <svg
-                className="absolute inset-0 w-full h-full text-[#00B4D8] drop-shadow-xl filter transition-all duration-300 group-hover:brightness-110"
+                className="absolute inset-0 w-full h-full text-[#2563EB] drop-shadow-xl filter transition-all duration-300 group-hover:brightness-110"
                 viewBox="0 0 300 140"
                 preserveAspectRatio="none"
               >

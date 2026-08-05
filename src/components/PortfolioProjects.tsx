@@ -110,10 +110,10 @@ export const PortfolioProjects: React.FC = () => {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
           <div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 font-serif-heading">
-              Nos Réalisations en Côte d'Ivoire
+              Nos Réalisations
             </h2>
             <p className="text-gray-600 text-sm sm:text-base mt-2 max-w-2xl">
-              Découvrez quelques-uns de nos chantiers récents en BTP, forages d'eau et réseaux d'électrification réalisés avec rigueur et sécurité.
+              Découvrez quelques-uns de nos chantiers récents en BTP, forages d'eau et import-export réalisés avec rigueur et sécurité.
             </p>
           </div>
 
@@ -157,7 +157,7 @@ export const PortfolioProjects: React.FC = () => {
                   : 'text-gray-600 hover:text-gray-900'
               }`}
             >
-              Électrification
+              Import-Export
             </button>
           </div>
         </div>
@@ -169,7 +169,7 @@ export const PortfolioProjects: React.FC = () => {
               key={project.id}
               className="bg-[#F8F9FA] rounded-2xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col group"
             >
-              <div className="relative h-52 overflow-hidden">
+              <div className="relative h-56 overflow-hidden">
                 <img
                   src={project.image}
                   alt={project.title}
@@ -196,18 +196,9 @@ export const PortfolioProjects: React.FC = () => {
                   <h3 className="font-bold font-serif-heading text-lg text-gray-900 mb-2 group-hover:text-[#2563EB] transition-colors">
                     {project.title}
                   </h3>
-                  <p className="text-xs text-gray-600 leading-relaxed mb-4">
+                  <p className="text-xs text-gray-600 leading-relaxed">
                     {project.description}
                   </p>
-                </div>
-
-                <div className="pt-4 border-t border-gray-200 grid grid-cols-2 gap-2 bg-white p-3 rounded-xl border border-gray-100">
-                  {project.metrics.map((m, idx) => (
-                    <div key={idx}>
-                      <span className="block text-[10px] uppercase font-bold text-gray-400">{m.label}</span>
-                      <span className="block text-xs font-extrabold text-[#2E9D62]">{m.value}</span>
-                    </div>
-                  ))}
                 </div>
               </div>
 

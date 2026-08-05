@@ -49,8 +49,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenQuoteModal }) => {
             <Logo variant="compact" />
           </a>
 
-          {/* Desktop Navigation Links */}
-          <div className="hidden lg:flex items-center gap-6 xl:gap-8">
+          {/* Desktop Navigation Links & Right Action CTA Grouped Together */}
+          <div className="hidden lg:flex items-center gap-6 xl:gap-8 ml-auto mr-4 sm:mr-6">
             {navLinks.map((link) => (
               <a
                 key={link.name}
@@ -64,7 +64,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenQuoteModal }) => {
           </div>
 
           {/* Right Action CTA */}
-          <div className="hidden sm:flex items-center gap-3">
+          <div className="hidden sm:flex items-center">
             <button
               onClick={onOpenQuoteModal}
               className="bg-[#2563EB] hover:bg-[#1D4ED8] text-white text-sm font-bold px-5 py-2.5 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 flex items-center gap-2 group transform active:scale-95"

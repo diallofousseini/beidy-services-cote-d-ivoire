@@ -22,12 +22,36 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   if (!isOpen) return null;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setIsSubmitting(true);
+    try {
+      await fetch("https://formsubmit.co/ajax/beidyservices@gmail.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify({
+          _subject: `Demande de Devis - ${formData.service} (${formData.fullName})`,
+          Nom_et_Prenom: formData.fullName,
+          Telephone: formData.phone,
+          Email_Client: formData.email,
+          Service_Demande: formData.service,
+          Localisation_Projet: formData.location,
+          Description_Message: formData.message
+        })
+      });
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setIsSubmitting(false);
+      setSubmitted(true);
+    }
   };
 
   return (
@@ -159,10 +183,11 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
               <div className="pt-2">
                 <button
                   type="submit"
-                  className="w-full bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-bold py-3.5 px-4 rounded-xl shadow-lg transition-all flex items-center justify-center gap-2 text-sm"
+                  disabled={isSubmitting}
+                  className="w-full bg-[#2563EB] hover:bg-[#1D4ED8] disabled:bg-blue-400 text-white font-bold py-3.5 px-4 rounded-xl shadow-lg transition-all flex items-center justify-center gap-2 text-sm"
                 >
                   <Send className="w-4 h-4 text-blue-200" />
-                  <span>Envoyer ma Demande de Devis</span>
+                  <span>{isSubmitting ? 'Envoi en cours...' : 'Envoyer ma Demande de Devis'}</span>
                 </button>
               </div>
             </form>
