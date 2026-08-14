@@ -3,25 +3,15 @@ import { Building2, ShieldCheck, Users, Target, Award, MapPin } from 'lucide-rea
 
 export const AboutSection: React.FC = () => {
   return (
-    <section id="a-propos" className="py-20 bg-white border-t border-gray-100">
+    <section id="a-propos" className="py-10 sm:py-12 bg-white border-t border-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 font-serif-heading">
-            BEIDY SERVICES CÔTE D'IVOIRE
-          </h2>
-          <p className="text-gray-600 text-sm sm:text-base mt-3 leading-relaxed">
-            Un acteur de référence dédié à la construction d'infrastructures durables, à l'accès universel à l'eau potable et à l'import-export d'équipements industriels.
-          </p>
-        </div>
-
         {/* 2 Columns: Enterprise Presentation & History */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
-          <div className="space-y-5 text-gray-700 text-sm sm:text-base leading-relaxed">
-            <h3 className="text-2xl font-black text-gray-900 font-serif-heading">
-              Au Service du Développement National et Régional
-            </h3>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+          <div className="space-y-4 text-gray-700 text-sm sm:text-base leading-relaxed">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 font-serif-heading">
+              Qui sommes-nous ?
+            </h2>
             <p>
               Basée à Abidjan (Cocody / Abatta), <strong className="text-gray-900">BEIDY SERVICES CÔTE D'IVOIRE</strong> s'est imposée comme un partenaire technique privilégié auprès des particuliers, des entreprises privées et des collectivités locales.
             </p>

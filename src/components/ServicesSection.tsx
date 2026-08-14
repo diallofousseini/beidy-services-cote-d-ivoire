@@ -119,7 +119,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
   ];
 
   return (
-    <section id="services" className="py-20 bg-[#F8F9FA] relative">
+    <section id="services" className="py-10 sm:py-12 bg-[#F8F9FA] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}

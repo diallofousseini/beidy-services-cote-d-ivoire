@@ -72,7 +72,7 @@ export const NewsSection: React.FC = () => {
   ];
 
   return (
-    <section id="actualites" className="py-20 bg-white text-[#1A1A1A] relative overflow-hidden border-t border-gray-100">
+    <section id="actualites" className="py-10 sm:py-12 bg-white text-[#1A1A1A] relative overflow-hidden border-t border-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Left-Aligned Header Title with Right-Aligned Carousel Control Buttons */}

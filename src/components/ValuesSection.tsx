@@ -39,7 +39,7 @@ export const ValuesSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-20 bg-[#F8F9FA] border-t border-b border-gray-200">
+    <section className="py-10 sm:py-12 bg-[#F8F9FA] border-t border-b border-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}

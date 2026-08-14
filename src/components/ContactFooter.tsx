@@ -70,7 +70,7 @@ export const ContactFooter: React.FC<ContactFooterProps> = ({ preFilledData }) =
   return (
     <>
       {/* Clean White Contact Section */}
-      <section id="contact" className="bg-white text-gray-900 py-16 sm:py-24 border-t border-gray-200 relative overflow-hidden">
+      <section id="contact" className="bg-white text-gray-900 py-10 sm:py-12 border-t border-gray-200 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Main Title */}

@@ -48,7 +48,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenQuoteModal }) => {
   }, [slides.length]);
 
   return (
-    <section id="accueil" className="relative pt-20 sm:pt-24 pb-12 lg:pb-20 bg-[#1A1A1A] text-white overflow-hidden">
+    <section id="accueil" className="relative pt-16 sm:pt-20 pb-8 lg:pb-12 bg-[#1A1A1A] text-white overflow-hidden">
       {/* Background Slideshow with Smooth Overlay */}
       {slides.map((slide, idx) => (
         <div

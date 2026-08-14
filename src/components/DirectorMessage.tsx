@@ -5,7 +5,7 @@ const dgPhoto = '/images/images_direteur/directeur.png';
 
 export const DirectorMessage: React.FC = () => {
   return (
-    <section id="mot-du-dg" className="py-20 bg-white relative overflow-hidden">
+    <section id="mot-du-dg" className="py-10 sm:py-12 bg-white relative overflow-hidden">
       {/* Background Accent Lines */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-[#2E9D62]/5 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#2563EB]/5 rounded-full blur-3xl pointer-events-none" />

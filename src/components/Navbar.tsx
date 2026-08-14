@@ -45,7 +45,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenQuoteModal, onNavigate, cu
     <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
       {/* Solid White Background Navbar */}
       <nav
-        className="bg-white shadow-md border-b border-gray-200 py-2 sm:py-2.5 transition-all duration-300"
+        className="bg-white shadow-md border-b border-gray-200 py-1 sm:py-1.5 transition-all duration-300"
         aria-label="Navigation principale"
         itemScope
         itemType="https://schema.org/SiteNavigationElement"
