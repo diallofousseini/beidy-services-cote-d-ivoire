@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Play, Maximize2, X, ChevronLeft, ChevronRight, Image as ImageIcon, Video, Filter, Download, Sparkles } from 'lucide-react';
+import { Play, Maximize2, X, ChevronLeft, ChevronRight, Image as ImageIcon, Video, Filter, Download, Sparkles, Search, ArrowLeft } from 'lucide-react';
 
 interface MediaItem {
   id: string;
@@ -12,8 +12,14 @@ interface MediaItem {
   description: string;
 }
 
-export const MediaGallerySection: React.FC = () => {
+interface MediaGallerySectionProps {
+  onBackToHome?: () => void;
+  isDedicatedPage?: boolean;
+}
+
+export const MediaGallerySection: React.FC<MediaGallerySectionProps> = ({ onBackToHome, isDedicatedPage = false }) => {
   const [activeCategory, setActiveCategory] = useState<string>('all');
+  const [searchQuery, setSearchQuery] = useState<string>('');
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   const mediaItems: MediaItem[] = [
@@ -332,9 +338,14 @@ export const MediaGallerySection: React.FC = () => {
     }
   ];
 
-  const filteredMedia = activeCategory === 'all'
-    ? mediaItems
-    : mediaItems.filter(item => item.category === activeCategory);
+  const filteredMedia = mediaItems.filter(item => {
+    const matchesCategory = activeCategory === 'all' || item.category === activeCategory;
+    const matchesSearch = searchQuery.trim() === '' ||
+      item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      item.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      item.categoryLabel.toLowerCase().includes(searchQuery.toLowerCase());
+    return matchesCategory && matchesSearch;
+  });
 
   const openLightbox = (index: number) => {
     setLightboxIndex(index);
@@ -359,25 +370,60 @@ export const MediaGallerySection: React.FC = () => {
   };
 
   return (
-    <section id="mediatheque" className="py-20 bg-[#0F172A] text-white relative overflow-hidden">
+    <section id="mediatheque" className={`py-20 bg-[#0F172A] text-white relative overflow-hidden ${isDedicatedPage ? 'pt-28 min-h-screen' : ''}`}>
       {/* Glow Effects Background */}
       <div className="absolute top-1/4 left-0 w-96 h-96 bg-[#2563EB]/10 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-[#2E9D62]/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
+        {/* Back to Home Button if on Dedicated Page */}
+        {onBackToHome && (
+          <div className="mb-8">
+            <button
+              onClick={onBackToHome}
+              className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white font-bold px-4 py-2 rounded-xl backdrop-blur-md border border-white/20 transition-all shadow-md group"
+            >
+              <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+              <span>Retour à l'Accueil</span>
+            </button>
+          </div>
+        )}
+
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
+        <div className="text-center max-w-3xl mx-auto mb-10">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md text-emerald-400 font-bold text-xs uppercase tracking-wider mb-4 border border-white/15">
             <Sparkles className="w-4 h-4 text-emerald-400" />
             <span>Médiathèque Officielle BEIDY SERVICES</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black font-serif-heading text-white tracking-tight">
-            Galerie Photos & Vidéos de Nos Chantiers
+            Espace Médiathèque & Galerie Dédiée
           </h2>
           <p className="text-gray-300 text-sm sm:text-base mt-4 leading-relaxed">
-            Découvrez nos photos authentiques de terrain et vidéos de démonstration illustrant la maîtrise de nos équipes en BTP, Forage d'eau et Import-Export en Côte d'Ivoire.
+            Consultez nos clichés de terrain authentiques et nos vidéos de démonstration illustrant l'excellence de nos équipes en BTP, Forage d'eau et Import-Export.
           </p>
+        </div>
+
+        {/* Live Search Input Bar */}
+        <div className="max-w-md mx-auto mb-8">
+          <div className="relative">
+            <Search className="w-5 h-5 text-gray-400 absolute left-4 top-3.5" />
+            <input
+              type="text"
+              placeholder="Rechercher une photo, un chantier, un outillage..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full pl-11 pr-4 py-3 bg-slate-800/90 border border-slate-700 rounded-xl text-sm text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#2563EB] shadow-inner"
+            />
+            {searchQuery && (
+              <button
+                onClick={() => setSearchQuery('')}
+                className="absolute right-3 top-3.5 text-gray-400 hover:text-white"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            )}
+          </div>
         </div>
 
         {/* Filter Bar */}

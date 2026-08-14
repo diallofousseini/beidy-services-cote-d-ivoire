@@ -12,6 +12,7 @@ import { QuoteModal } from './components/QuoteModal';
 import { FloatingActions } from './components/FloatingActions';
 
 export default function App() {
+  const [currentPage, setCurrentPage] = useState<'home' | 'mediatheque'>('home');
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
   const [selectedModalCategory, setSelectedModalCategory] = useState('BTP et Gros Œuvre');
   const [contactPreFill, setContactPreFill] = useState<{
@@ -32,42 +33,70 @@ export default function App() {
     setIsQuoteModalOpen(true);
   };
 
-  const handlePreFillContact = (data: { service: string; location: string; message: string }) => {
-    setContactPreFill(data);
+  const handleNavigation = (page: 'home' | 'mediatheque', sectionId?: string) => {
+    setCurrentPage(page);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (page === 'home' && sectionId && sectionId !== 'accueil') {
+      setTimeout(() => {
+        const el = document.getElementById(sectionId);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    }
   };
 
   return (
     <div className="min-h-screen bg-[#F8F9FA] text-[#1A1A1A] font-sans antialiased selection:bg-[#2E9D62] selection:text-white">
-      {/* Sticky Header Navbar */}
-      <Navbar onOpenQuoteModal={() => handleOpenQuoteModal()} />
+      {/* Sticky Solid White Header Navbar */}
+      <Navbar
+        currentPage={currentPage}
+        onNavigate={handleNavigation}
+        onOpenQuoteModal={() => handleOpenQuoteModal()}
+      />
 
-      {/* Main Content Sections */}
+      {/* Main Content View Switcher */}
       <main>
-        {/* Section 1: Hero Carousel / Showcase */}
-        <Hero onOpenQuoteModal={() => handleOpenQuoteModal()} />
+        {currentPage === 'mediatheque' ? (
+          /* PAGE DÉDIÉE MÉDIATHÈQUE */
+          <>
+            <MediaGallerySection
+              isDedicatedPage={true}
+              onBackToHome={() => handleNavigation('home', 'accueil')}
+            />
+            <ContactFooter preFilledData={contactPreFill} />
+          </>
+        ) : (
+          /* PAGE D'ACCUEIL PRINCIPALE */
+          <>
+            {/* Section 1: Hero Carousel / Showcase */}
+            <Hero onOpenQuoteModal={() => handleOpenQuoteModal()} />
 
-        {/* Section 2: À Propos */}
-        <AboutSection />
+            {/* Section 2: À Propos */}
+            <AboutSection />
 
-        {/* Section 3: Nos Domaines d'Expertise */}
-        <ServicesSection
-          onSelectServiceForQuote={(cat) => handleOpenQuoteModal(cat)}
-        />
+            {/* Section 3: Nos Domaines d'Expertise */}
+            <ServicesSection
+              onSelectServiceForQuote={(cat) => handleOpenQuoteModal(cat)}
+            />
 
-        {/* Section 4: Le Mot du Directeur Général (M. Hassane Barry) */}
-        <DirectorMessage />
+            {/* Section 4: Le Mot du Directeur Général (M. Hassane Barry) */}
+            <DirectorMessage />
 
-        {/* Section 5: Nos Valeurs & Engagements */}
-        <ValuesSection />
+            {/* Section 5: Nos Valeurs & Engagements */}
+            <ValuesSection />
 
-        {/* Section 6: Nos Réalisations en Côte d'Ivoire (Projets) */}
-        <PortfolioProjects />
+            {/* Section 6: Nos Réalisations en Côte d'Ivoire (Projets) */}
+            <PortfolioProjects />
 
-        {/* Section 7: Médiathèque Officielle (Photos & Vidéos) */}
-        <MediaGallerySection />
+            {/* Section 7: Aperçu Médiathèque (Photos & Vidéos) */}
+            <MediaGallerySection
+              onBackToHome={undefined}
+              isDedicatedPage={false}
+            />
 
-        {/* Section 8: Formulaire de Contact & Footer */}
-        <ContactFooter preFilledData={contactPreFill} />
+            {/* Section 8: Formulaire de Contact & Footer */}
+            <ContactFooter preFilledData={contactPreFill} />
+          </>
+        )}
       </main>
 
       {/* Interactive Quote Modal */}

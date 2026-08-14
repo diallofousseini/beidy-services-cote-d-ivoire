@@ -4,9 +4,11 @@ import { Phone, MessageSquare, Menu, X, ChevronRight, FileText, Briefcase } from
 
 interface NavbarProps {
   onOpenQuoteModal: () => void;
+  onNavigate?: (page: 'home' | 'mediatheque', sectionId?: string) => void;
+  currentPage?: 'home' | 'mediatheque';
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ onOpenQuoteModal }) => {
+export const Navbar: React.FC<NavbarProps> = ({ onOpenQuoteModal, onNavigate, currentPage = 'home' }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -23,45 +25,61 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenQuoteModal }) => {
   }, []);
 
   const navLinks = [
-    { name: 'ACCUEIL', href: '#accueil' },
-    { name: 'À PROPOS', href: '#a-propos' },
-    { name: 'NOS SERVICES', href: '#services' },
-    { name: 'PROJETS', href: '#realisations' },
-    { name: 'MÉDIATHÈQUE', href: '#mediatheque' },
-    { name: 'CONTACT', href: '#contact' },
+    { name: 'ACCUEIL', href: '#accueil', page: 'home', section: 'accueil' },
+    { name: 'À PROPOS', href: '#a-propos', page: 'home', section: 'a-propos' },
+    { name: 'NOS SERVICES', href: '#services', page: 'home', section: 'services' },
+    { name: 'PROJETS', href: '#realisations', page: 'home', section: 'realisations' },
+    { name: 'MÉDIATHÈQUE', href: '#mediatheque', page: 'mediatheque', section: 'mediatheque' },
+    { name: 'CONTACT', href: '#contact', page: 'home', section: 'contact' },
   ];
+
+  const handleLinkClick = (e: React.MouseEvent, link: typeof navLinks[0]) => {
+    e.preventDefault();
+    if (onNavigate) {
+      onNavigate(link.page as 'home' | 'mediatheque', link.section);
+    } else {
+      window.location.hash = link.href;
+    }
+  };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-      {/* Main Sticky Glassmorphism Navbar with Reduced Container Width */}
+      {/* Solid White Background Navbar */}
       <nav
-        className={`transition-all duration-300 ${
-          isScrolled
-            ? 'bg-white/80 backdrop-blur-3xl shadow-xl py-1.5 sm:py-2 border-b border-white/60'
-            : 'bg-white/35 backdrop-blur-3xl shadow-xl shadow-black/5 py-2 sm:py-2.5 border-b border-white/50'
-        }`}
+        className="bg-white shadow-md border-b border-gray-200 py-2 sm:py-2.5 transition-all duration-300"
         aria-label="Navigation principale"
         itemScope
         itemType="https://schema.org/SiteNavigationElement"
       >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           {/* Logo Brand */}
-          <a href="#accueil" className="flex items-center group" itemProp="url">
+          <a
+            href="#accueil"
+            onClick={(e) => handleLinkClick(e, navLinks[0])}
+            className="flex items-center group"
+            itemProp="url"
+          >
             <Logo variant="compact" />
           </a>
 
           {/* Desktop Navigation Links & Right Action CTA Grouped Together */}
-          <div className="hidden lg:flex items-center gap-6 xl:gap-8 ml-auto mr-4 sm:mr-6">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                itemProp="url"
-                className="text-sm xl:text-base font-black text-gray-900 hover:text-[#2563EB] transition-colors py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 hover:after:w-full after:bg-[#2563EB] after:transition-all after:duration-300 tracking-wider uppercase"
-              >
-                <span itemProp="name">{link.name}</span>
-              </a>
-            ))}
+          <div className="hidden lg:flex items-center gap-5 xl:gap-7 ml-auto mr-4 sm:mr-6">
+            {navLinks.map((link) => {
+              const isActive = link.page === currentPage && (currentPage === 'mediatheque' || link.section === 'accueil');
+              return (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  itemProp="url"
+                  onClick={(e) => handleLinkClick(e, link)}
+                  className={`text-sm xl:text-base font-black transition-colors py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 hover:after:w-full after:bg-[#2563EB] after:transition-all after:duration-300 tracking-wider uppercase ${
+                    isActive ? 'text-[#2563EB] after:w-full' : 'text-gray-900 hover:text-[#2563EB]'
+                  }`}
+                >
+                  <span itemProp="name">{link.name}</span>
+                </a>
+              );
+            })}
           </div>
 
           {/* Right Action CTA */}
@@ -104,8 +122,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenQuoteModal }) => {
                   key={link.name}
                   href={link.href}
                   itemProp="url"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="px-3 py-2.5 rounded-md text-base font-semibold text-gray-800 hover:text-[#2E9D62] hover:bg-[#EBF7F0] transition-colors flex items-center justify-between"
+                  onClick={(e) => {
+                    setMobileMenuOpen(false);
+                    handleLinkClick(e, link);
+                  }}
+                  className="px-3 py-2.5 rounded-md text-base font-semibold text-gray-800 hover:text-[#2563EB] hover:bg-gray-50 transition-colors flex items-center justify-between"
                 >
                   <span itemProp="name">{link.name}</span>
                   <ChevronRight className="w-4 h-4 text-gray-400" />
