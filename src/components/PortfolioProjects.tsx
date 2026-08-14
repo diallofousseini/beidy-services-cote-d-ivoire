@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ServiceCategory } from '../types';
-import { MapPin, Calendar, CheckCircle, ExternalLink, Filter } from 'lucide-react';
+import { MapPin, Calendar, CheckCircle, ExternalLink, Filter, ChevronRight } from 'lucide-react';
 
 const btpReal1 = '/images/realisations/btp.png';
 const btpReal2 = '/images/realisations/travau publi.png';
