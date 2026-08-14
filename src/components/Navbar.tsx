@@ -26,7 +26,6 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenQuoteModal, onNavigate, cu
 
   const navLinks = [
     { name: 'ACCUEIL', href: '#accueil', page: 'home', section: 'accueil' },
-    { name: 'À PROPOS', href: '#a-propos', page: 'home', section: 'a-propos' },
     { name: 'NOS SERVICES', href: '#services', page: 'home', section: 'services' },
     { name: 'PROJETS', href: '#realisations', page: 'home', section: 'realisations' },
     { name: 'MÉDIATHÈQUE', href: '#mediatheque', page: 'mediatheque', section: 'mediatheque' },

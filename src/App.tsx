@@ -5,6 +5,7 @@ import { ServicesSection } from './components/ServicesSection';
 import { DirectorMessage } from './components/DirectorMessage';
 import { ValuesSection } from './components/ValuesSection';
 import { PortfolioProjects } from './components/PortfolioProjects';
+import { NewsSection } from './components/NewsSection';
 import { MediaGallerySection } from './components/MediaGallerySection';
 import { AboutSection } from './components/AboutSection';
 import { ContactFooter } from './components/ContactFooter';
@@ -87,11 +88,8 @@ export default function App() {
             {/* Section 6: Nos Réalisations en Côte d'Ivoire (Projets) */}
             <PortfolioProjects />
 
-            {/* Section 7: Aperçu Médiathèque (Photos & Vidéos) */}
-            <MediaGallerySection
-              onBackToHome={undefined}
-              isDedicatedPage={false}
-            />
+            {/* Section 7: Dernières Actualités & Chantiers */}
+            <NewsSection />
 
             {/* Section 8: Formulaire de Contact & Footer */}
             <ContactFooter preFilledData={contactPreFill} />

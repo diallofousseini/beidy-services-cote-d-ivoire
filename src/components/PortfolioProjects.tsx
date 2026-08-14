@@ -184,6 +184,17 @@ export const PortfolioProjects: React.FC = () => {
           ))}
         </div>
 
+        {/* Bottom CTA Button: Voir Plus (Redirects to Contact Section) */}
+        <div className="mt-14 text-center">
+          <a
+            href="#contact"
+            className="inline-flex items-center gap-3 bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-bold text-base px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 active:scale-95 group"
+          >
+            <span>Voir Plus de Réalisations & Discuter de Votre Projet</span>
+            <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+          </a>
+        </div>
+
       </div>
     </section>
   );

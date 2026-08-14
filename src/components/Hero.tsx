@@ -127,9 +127,9 @@ export const Hero: React.FC<HeroProps> = ({ onOpenQuoteModal }) => {
         {/* Royal Blue Brush-Stroke Stats Banner Grid */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 pt-6 border-t border-white/15">
           {[
-            { value: '8+', label: "Années d'Expertise" },
-            { value: '150+', label: 'Projets Réalisés' },
-            { value: '+25', label: 'Sites d’intervention' },
+            { value: '+14', label: "Années d'Expertise" },
+            { value: '+350', label: 'Projets Réalisés' },
+            { value: '+200', label: 'Sites d’intervention' },
             { value: '3', label: "Secteurs d'Activités" },
           ].map((stat, idx) => (
             <div

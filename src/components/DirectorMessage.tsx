@@ -50,7 +50,7 @@ export const DirectorMessage: React.FC = () => {
                 <ShieldCheck className="w-6 h-6 text-emerald-200" />
                 <div className="text-left">
                   <span className="block text-[10px] uppercase font-bold tracking-wider text-emerald-100">Savoir-Faire</span>
-                  <span className="block text-xs font-black">+8 années d'expérience</span>
+                  <span className="block text-xs font-black">+14 années d'expérience</span>
                 </div>
               </div>
 
@@ -59,28 +59,14 @@ export const DirectorMessage: React.FC = () => {
 
           {/* Right Side: Message & Quote (7 columns) */}
           <div className="lg:col-span-7 space-y-6">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 font-serif-heading leading-tight">
-              Le Mot du Directeur Général
-            </h2>
 
             {/* Quote Block in Large Serif Typography */}
             <div className="relative bg-[#F8F9FA] p-8 sm:p-10 rounded-2xl border-l-4 border-[#2E9D62] shadow-sm">
               <Quote className="w-12 h-12 text-[#2E9D62]/20 absolute top-4 right-4 pointer-events-none" />
               
-              <blockquote className="font-serif-heading text-lg sm:text-2xl text-gray-800 font-semibold leading-relaxed italic mb-6">
+              <blockquote className="font-serif-heading text-lg sm:text-2xl text-gray-800 font-semibold leading-relaxed italic">
                 « Notre engagement envers nos clients repose sur la solidité de nos constructions, l'accès universel à l'eau potable et l'excellence opérationnelle. Chez BEIDY SERVICES, nous transformons les défis techniques en réussites durables. »
               </blockquote>
-
-              <div className="flex items-center justify-between pt-4 border-t border-gray-200/80">
-                <div>
-                  <span className="block font-bold text-gray-900 text-base">Hassane BARRY</span>
-                  <span className="block text-xs font-medium text-gray-500">Directeur Général, BEIDY SERVICES CÔTE D'IVOIRE</span>
-                </div>
-                <div className="text-right">
-                  <span className="font-stencil-brand text-xs font-extrabold text-[#2563EB] block">BEIDY SERVICES</span>
-                  <span className="text-[10px] text-gray-400 font-semibold uppercase">Abidjan, Côte d'Ivoire</span>
-                </div>
-              </div>
             </div>
 
             {/* Key Commitment Pillars */}
