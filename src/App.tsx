@@ -5,6 +5,7 @@ import { ServicesSection } from './components/ServicesSection';
 import { DirectorMessage } from './components/DirectorMessage';
 import { ValuesSection } from './components/ValuesSection';
 import { PortfolioProjects } from './components/PortfolioProjects';
+import { MediaGallerySection } from './components/MediaGallerySection';
 import { AboutSection } from './components/AboutSection';
 import { ContactFooter } from './components/ContactFooter';
 import { QuoteModal } from './components/QuoteModal';
@@ -62,7 +63,10 @@ export default function App() {
         {/* Section 6: Nos Réalisations en Côte d'Ivoire (Projets) */}
         <PortfolioProjects />
 
-        {/* Section 7: Formulaire de Contact & Footer */}
+        {/* Section 7: Médiathèque Officielle (Photos & Vidéos) */}
+        <MediaGallerySection />
+
+        {/* Section 8: Formulaire de Contact & Footer */}
         <ContactFooter preFilledData={contactPreFill} />
       </main>
 

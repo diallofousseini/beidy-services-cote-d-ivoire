@@ -1,6 +1,7 @@
 import React from 'react';
 import { Quote, Award, ShieldCheck, CheckCircle, Sparkles } from 'lucide-react';
-import dgPhoto from '../assets/images/dg_hassane_barry_1785032207219.jpg';
+
+const dgPhoto = '/images/images_direteur/directeur.png';
 
 export const DirectorMessage: React.FC = () => {
   return (

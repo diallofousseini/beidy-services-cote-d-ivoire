@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowRight, Phone, CheckCircle2, Droplets, Building2, Zap, ShieldCheck } from 'lucide-react';
 
-import heroImg1 from '../assets/images/hero_btp_forage_1785032193951.jpg';
-import heroImg2 from '../assets/images/forage_water_rig_1785032220471.jpg';
-import heroImg3 from '../assets/images/btp_construction_site_1785032246377.jpg';
-import heroImg4 from '../assets/images/electrification_solar_1785032232054.jpg';
+const heroImg1 = '/images/images_passants/derks24-construction-site-3871804_1920.jpg';
+const heroImg2 = '/images/images_passants/WhatsApp Image 2026-08-05 at 10.55.41.jpeg';
+const heroImg3 = '/images/images_passants/patrickbaum-container-1097206.jpg';
+const heroImg4 = '/images/images_passants/WhatsApp Image 2026-08-05 at 10.49.20.jpeg';
 
 interface HeroProps {
   onOpenQuoteModal: () => void;
@@ -14,9 +14,9 @@ export const Hero: React.FC<HeroProps> = ({ onOpenQuoteModal }) => {
   const slides = [
     {
       image: heroImg1,
-      badge: 'BTP • FORAGE • ÉLECTRIFICATION',
-      title: 'Bâtir l’avenir, libérer les ressources, éclairer les régions.',
-      subtitle: 'BEIDY SERVICES COTE D\'IVOIRE réalise vos projets de BTP, Forage et Électrification Rurale avec une expertise certifiée et durable.',
+      badge: 'BTP • FORAGE • IMPORT-EXPORT',
+      title: 'Bâtir l’avenir, libérer les ressources, approvisionner vos chantiers.',
+      subtitle: 'BEIDY SERVICES CÔTE D\'IVOIRE réalise vos projets de BTP, Forage et Import-Export avec une expertise certifiée et durable.',
     },
     {
       image: heroImg2,
@@ -26,15 +26,15 @@ export const Hero: React.FC<HeroProps> = ({ onOpenQuoteModal }) => {
     },
     {
       image: heroImg3,
-      badge: 'EXCELLENCE DU BTP EN CÔTE D\'IVOIRE',
-      title: 'Construisons la confiance avec des bâtiments solides.',
-      subtitle: 'Études, gros œuvre, villas, immeubles et infrastructures industrielles livrés clé en main dans le respect des délais.',
+      badge: 'IMPORT-EXPORT & NÉGOCE INTERNATIONAL',
+      title: 'Des matériels et équipements lourds de haute qualité.',
+      subtitle: 'Fourniture et importation de machines BTP, équipements de forage et outillages industriels certifiés.',
     },
     {
       image: heroImg4,
-      badge: 'ÉNERGIES RENOUVELABLES & RURALITÉ',
-      title: 'Éclairer chaque foyer et impulser le développement.',
-      subtitle: 'Raccordement électrique HTA/BTA, éclairage public et solutions solaires durables pour collectivités et particuliers.',
+      badge: 'EXCELLENCE DU BTP EN CÔTE D\'IVOIRE',
+      title: 'Construisons la confiance avec des bâtiments solides.',
+      subtitle: 'Études, gros œuvre, villas, immeubles et infrastructures industrielles livrés clé en main dans le respect des délais.',
     }
   ];
 

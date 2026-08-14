@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Building2, Droplets, Package, ArrowRight, CheckCircle2, ShieldCheck, FileText, X } from 'lucide-react';
 
-import btpImg from '../assets/images/btp_construction_site_1785032246377.jpg';
-import forageImg from '../assets/images/forage_water_rig_1785032220471.jpg';
-import solarImg from '../assets/images/electrification_solar_1785032232054.jpg';
+const btpImg = '/images/domaines_expertises/Btp.jpg';
+const forageImg = '/images/domaines_expertises/forage.jpeg';
+const importExportImg = '/images/domaines_expertises/import-eport.jpg';
 
 interface ServiceItem {
   id: string;
@@ -93,7 +93,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
       title: 'Import-Export & Négoce',
       subtitle: 'Matériaux BTP, Équipements Lourds & Logistique',
       icon: <Package className="w-7 h-7 text-[#2E9D62]" />,
-      image: solarImg,
+      image: importExportImg,
       badge: 'Approvisionnement International',
       description:
         'BEIDY SERVICES CÔTE D\'IVOIRE assure l\'importation, l\'exportation, le négoce international et la fourniture d\'équipements de pointe, de pièces détachées et de matériaux certifiés pour vos chantiers de BTP et de Forage.',

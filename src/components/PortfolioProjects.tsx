@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import { ServiceCategory } from '../types';
 import { MapPin, Calendar, CheckCircle, ExternalLink, Filter } from 'lucide-react';
 
-import btpImg from '../assets/images/btp_construction_site_1785032246377.jpg';
-import forageImg from '../assets/images/forage_water_rig_1785032220471.jpg';
-import solarImg from '../assets/images/electrification_solar_1785032232054.jpg';
-import heroImg from '../assets/images/hero_btp_forage_1785032193951.jpg';
+const btpReal1 = '/images/realisations/btp.png';
+const btpReal2 = '/images/realisations/travau publi.png';
+const forageReal1 = '/images/realisations/Forage.png';
+const forageReal2 = '/images/realisations/forage_2.jpeg';
+const importReal1 = '/images/realisations/import-eport.png';
+const importReal2 = '/images/realisations/import.avif';
 
 export const PortfolioProjects: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState<ServiceCategory>('all');
@@ -18,12 +20,8 @@ export const PortfolioProjects: React.FC = () => {
       location: 'Abidjan - Cocody Abatta',
       clientType: 'Particulier',
       completionYear: '2025',
-      image: btpImg,
-      description: 'Réalisation intégrale du gros œuvre, des fondations renforcées au coulage des dalles et finitions extérieures.',
-      metrics: [
-        { label: 'Surface bâtie', value: '380 m²' },
-        { label: 'Délai d’exécution', value: '6 Mois' }
-      ]
+      image: btpReal1,
+      description: 'Réalisation intégrale du gros œuvre, des fondations renforcées au coulage des dalles et finitions extérieures.'
     },
     {
       id: 'p2',
@@ -32,68 +30,48 @@ export const PortfolioProjects: React.FC = () => {
       location: 'Cocody / Bingerville',
       clientType: 'Résidence Privée & Ferme',
       completionYear: '2025',
-      image: forageImg,
-      description: 'Détection géophysique, forage mécanique à 85 mètres, pose de pompe immergée solaire et réservoir élevé.',
-      metrics: [
-        { label: 'Profondeur', value: '85 Mètres' },
-        { label: 'Débit mesuré', value: '4.5 m³/h' }
-      ]
+      image: forageReal1,
+      description: 'Détection géophysique, forage mécanique à 85 mètres, pose de pompe immergée solaire et réservoir élevé.'
     },
     {
       id: 'p3',
       category: 'electrification' as ServiceCategory,
-      title: 'Éclairage Public Solaire & Extension Réseau BTA',
-      location: 'Région des Grands Ponts',
-      clientType: 'Collectivité Locale',
-      completionYear: '2024',
-      image: solarImg,
-      description: 'Installation de 45 lampadaires solaires autonettoyants et pose de Poteaux béton pour extension réseau.',
-      metrics: [
-        { label: 'Lampadaires solaires', value: '45 Unités' },
-        { label: 'Autonomie', value: '12 Hours/Nuit' }
-      ]
+      title: 'Importation d’Équipements & Matériels de Chantier',
+      location: 'Port Autonome d’Abidjan',
+      clientType: 'Société Partenaire',
+      completionYear: '2025',
+      image: importReal1,
+      description: 'Importation, dédouanement et fourniture de machineries lourdes et outillages industriels certifiés.'
     },
     {
       id: 'p4',
       category: 'btp' as ServiceCategory,
-      title: 'Immeuble Commercial R+3 & Entrepôt Logistique',
+      title: 'Immeuble Commercial R+3 & Travaux Publics',
       location: 'Zone Industrielle Yopougon',
       clientType: 'Entreprise Industrielle',
       completionYear: '2024',
-      image: heroImg,
-      description: 'Étude de structure béton armé, élévation des poteaux, plancher hourdis et dallage industriel haute résistance.',
-      metrics: [
-        { label: 'Superficie', value: '1200 m²' },
-        { label: 'Structure', value: 'Béton Armé' }
-      ]
+      image: btpReal2,
+      description: 'Étude de structure béton armé, élévation des poteaux, plancher hourdis et aménagement de voierie.'
     },
     {
       id: 'p5',
       category: 'forage' as ServiceCategory,
-      title: 'Forage Industriel & Système de Filtration Agro-Alimentaire',
+      title: 'Forage Industriel & Système de Filtration',
       location: 'Grand-Bassam',
       clientType: 'Usine d’Emballage',
       completionYear: '2025',
-      image: forageImg,
-      description: 'Forage d’eau à fort débit avec double tubage inox et station de traitement UV et adoucisseur.',
-      metrics: [
-        { label: 'Débit fort', value: '12 m³/h' },
-        { label: 'Norme d’eau', value: '100% Potable' }
-      ]
+      image: forageReal2,
+      description: 'Forage d’eau à fort débit avec double tubage inox et station de traitement UV et potabilisation.'
     },
     {
       id: 'p6',
       category: 'electrification' as ServiceCategory,
-      title: 'Centrale Solaire Photovoltaïque pour Site Isolé',
-      location: 'Yamoussoukro Périphérie',
-      clientType: 'Complexe Agricole',
+      title: 'Négoce International & Logistique de Pièces',
+      location: 'Abidjan & Intérieur',
+      clientType: 'Complexe Agricole & BTP',
       completionYear: '2025',
-      image: solarImg,
-      description: 'Installation de 24 panneaux solaires 550W, onduleur hybride 15kVA et parc de batteries Lithium.',
-      metrics: [
-        { label: 'Puissance crête', value: '13.2 kWp' },
-        { label: 'Batteries', value: 'Lithium LiFePO4' }
-      ]
+      image: importReal2,
+      description: 'Sourcing international, transport maritime et distribution de pompes hydrauliques et tuyauteries PVC/Acier.'
     }
   ];
 
