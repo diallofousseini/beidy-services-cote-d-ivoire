@@ -131,20 +131,11 @@ export const NewsSection: React.FC = () => {
                   </p>
                 </div>
 
-                {/* Bottom Row: Date & En savoir plus on Left, Category on Right in same style */}
+                {/* Bottom Row: Date on Left, Category on Right in same style */}
                 <div className="pt-4 border-t border-gray-200/70 flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <div className="flex items-center gap-1.5 text-xs font-semibold text-gray-400">
-                      <Calendar className="w-3.5 h-3.5 text-[#2563EB]" />
-                      <span>{item.date}</span>
-                    </div>
-                    <a
-                      href="#contact"
-                      className="text-xs font-bold text-[#2563EB] group-hover:text-[#1D4ED8] inline-flex items-center gap-0.5 group-hover:underline ml-2"
-                    >
-                      <span>En savoir plus</span>
-                      <ChevronRight className="w-3.5 h-3.5" />
-                    </a>
+                  <div className="flex items-center gap-1.5 text-xs font-semibold text-gray-400">
+                    <Calendar className="w-3.5 h-3.5 text-[#2563EB]" />
+                    <span>{item.date}</span>
                   </div>
 
                   {/* Category placed on the right with the exact same font/style as date */}

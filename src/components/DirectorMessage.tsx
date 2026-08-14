@@ -71,17 +71,14 @@ export const DirectorMessage: React.FC = () => {
 
             {/* Key Commitment Pillars */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
-              <div className="flex items-center gap-2.5 bg-white p-3.5 rounded-xl border border-gray-100 shadow-sm">
-                <CheckCircle className="w-5 h-5 text-[#2E9D62] shrink-0" />
-                <span className="text-xs font-bold text-gray-800">Sécurité & Normes BTP</span>
+              <div className="flex items-center justify-center gap-2 bg-white p-3.5 rounded-xl border border-gray-200/80 shadow-sm hover:border-[#2E9D62] transition-colors">
+                <span className="text-base sm:text-lg font-black text-gray-900">🏗️ Bâtir</span>
               </div>
-              <div className="flex items-center gap-2.5 bg-white p-3.5 rounded-xl border border-gray-100 shadow-sm">
-                <CheckCircle className="w-5 h-5 text-[#2563EB] shrink-0" />
-                <span className="text-xs font-bold text-gray-800">Accès à l'Eau Propre</span>
+              <div className="flex items-center justify-center gap-2 bg-white p-3.5 rounded-xl border border-gray-200/80 shadow-sm hover:border-[#2563EB] transition-colors">
+                <span className="text-base sm:text-lg font-black text-gray-900">💧 Forer</span>
               </div>
-              <div className="flex items-center gap-2.5 bg-white p-3.5 rounded-xl border border-gray-100 shadow-sm">
-                <CheckCircle className="w-5 h-5 text-[#2E9D62] shrink-0" />
-                <span className="text-xs font-bold text-gray-800">Énergies Écologiques</span>
+              <div className="flex items-center justify-center gap-2 bg-white p-3.5 rounded-xl border border-gray-200/80 shadow-sm hover:border-[#2E9D62] transition-colors">
+                <span className="text-base sm:text-lg font-black text-gray-900">🌐 Connecter</span>
               </div>
             </div>
 

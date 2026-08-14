@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://beidy-services.vercel.app/sitemap.xml
+Sitemap: https://beidy.vercel.app/sitemap.xml
