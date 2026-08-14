@@ -558,86 +558,90 @@ export const MediaGallerySection: React.FC<MediaGallerySectionProps> = ({ onBack
         </div>
 
         {/* Fullscreen Lightbox Modal */}
-        {lightboxIndex !== null && filteredMedia[lightboxIndex] && (
-          <div
-            onClick={closeLightbox}
-            className="fixed inset-0 z-50 bg-black/95 backdrop-blur-xl flex flex-col items-center justify-between p-4 sm:p-6 animate-fadeIn"
-          >
-            {/* Top Bar Navigation */}
-            <div className="w-full flex items-center justify-between text-white border-b border-white/10 pb-4">
-              <div className="flex items-center gap-3">
-                <span className="bg-[#2563EB] text-white font-bold text-xs px-3 py-1 rounded-full uppercase">
-                  {filteredMedia[lightboxIndex].categoryLabel}
-                </span>
-                <span className="text-xs sm:text-sm text-gray-300 font-semibold">
-                  {lightboxIndex + 1} / {filteredMedia.length}
-                </span>
+        {lightboxIndex !== null && filteredMedia[lightboxIndex] && (() => {
+          const currentItem = filteredMedia[lightboxIndex];
+          if (!currentItem) return null;
+          return (
+            <div
+              onClick={closeLightbox}
+              className="fixed inset-0 z-50 bg-black/95 backdrop-blur-xl flex flex-col items-center justify-between p-4 sm:p-6 animate-fadeIn"
+            >
+              {/* Top Bar Navigation */}
+              <div className="w-full flex items-center justify-between text-white border-b border-white/10 pb-4">
+                <div className="flex items-center gap-3">
+                  <span className="bg-[#2563EB] text-white font-bold text-xs px-3 py-1 rounded-full uppercase">
+                    {currentItem.categoryLabel}
+                  </span>
+                  <span className="text-xs sm:text-sm text-gray-300 font-semibold">
+                    {lightboxIndex + 1} / {filteredMedia.length}
+                  </span>
+                </div>
+                <button
+                  onClick={closeLightbox}
+                  className="bg-white/10 hover:bg-white/25 text-white p-2.5 rounded-full transition-colors"
+                  aria-label="Fermer la vue"
+                >
+                  <X className="w-6 h-6" />
+                </button>
               </div>
-              <button
-                onClick={closeLightbox}
-                className="bg-white/10 hover:bg-white/25 text-white p-2.5 rounded-full transition-colors"
-                aria-label="Fermer la vue"
-              >
-                <X className="w-6 h-6" />
-              </button>
-            </div>
 
-            {/* Main Center Content */}
-            <div className="relative flex-1 w-full flex items-center justify-center max-w-5xl my-4">
-              {/* Prev Button */}
-              <button
-                onClick={prevLightbox}
-                className="absolute left-2 sm:left-4 z-20 bg-black/60 hover:bg-black/90 text-white p-3 rounded-full border border-white/20 transition-all transform hover:scale-110"
-                aria-label="Précédent"
-              >
-                <ChevronLeft className="w-7 h-7" />
-              </button>
+              {/* Main Center Content */}
+              <div className="relative flex-1 w-full flex items-center justify-center max-w-5xl my-4">
+                {/* Prev Button */}
+                <button
+                  onClick={prevLightbox}
+                  className="absolute left-2 sm:left-4 z-20 bg-black/60 hover:bg-black/90 text-white p-3 rounded-full border border-white/20 transition-all transform hover:scale-110"
+                  aria-label="Précédent"
+                >
+                  <ChevronLeft className="w-7 h-7" />
+                </button>
 
-              {/* Media Content Display */}
+                {/* Media Content Display */}
+                <div
+                  onClick={(e) => e.stopPropagation()}
+                  className="max-h-[75vh] max-w-full flex items-center justify-center overflow-hidden rounded-2xl border border-white/15 shadow-2xl bg-black"
+                >
+                  {currentItem.type === 'image' ? (
+                    <img
+                      src={currentItem.src}
+                      alt={currentItem.title}
+                      className="max-h-[75vh] max-w-full object-contain"
+                    />
+                  ) : (
+                    <video
+                      src={currentItem.src}
+                      controls
+                      autoPlay
+                      className="max-h-[75vh] max-w-full object-contain"
+                    />
+                  )}
+                </div>
+
+                {/* Next Button */}
+                <button
+                  onClick={nextLightbox}
+                  className="absolute right-2 sm:right-4 z-20 bg-black/60 hover:bg-black/90 text-white p-3 rounded-full border border-white/20 transition-all transform hover:scale-110"
+                  aria-label="Suivant"
+                >
+                  <ChevronRight className="w-7 h-7" />
+                </button>
+              </div>
+
+              {/* Bottom Caption Bar */}
               <div
                 onClick={(e) => e.stopPropagation()}
-                className="max-h-[75vh] max-w-full flex items-center justify-center overflow-hidden rounded-2xl border border-white/15 shadow-2xl bg-black"
+                className="w-full max-w-3xl bg-slate-900/90 border border-white/15 p-4 sm:p-5 rounded-2xl backdrop-blur-md text-center space-y-1"
               >
-                {filteredMedia[lightboxIndex].type === 'image' ? (
-                  <img
-                    src={filteredMedia[lightboxIndex].src}
-                    alt={filteredMedia[lightboxIndex].title}
-                    className="max-h-[75vh] max-w-full object-contain"
-                  />
-                ) : (
-                  <video
-                    src={filteredMedia[lightboxIndex].src}
-                    controls
-                    autoPlay
-                    className="max-h-[75vh] max-w-full object-contain"
-                  />
-                )}
+                <h3 className="font-bold text-lg sm:text-xl font-serif-heading text-white">
+                  {currentItem.title}
+                </h3>
+                <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">
+                  {currentItem.description}
+                </p>
               </div>
-
-              {/* Next Button */}
-              <button
-                onClick={nextLightbox}
-                className="absolute right-2 sm:right-4 z-20 bg-black/60 hover:bg-black/90 text-white p-3 rounded-full border border-white/20 transition-all transform hover:scale-110"
-                aria-label="Suivant"
-              >
-                <ChevronRight className="w-7 h-7" />
-              </button>
             </div>
-
-            {/* Bottom Caption Bar */}
-            <div
-              onClick={(e) => e.stopPropagation()}
-              className="w-full max-w-3xl bg-slate-900/90 border border-white/15 p-4 sm:p-5 rounded-2xl backdrop-blur-md text-center space-y-1"
-            >
-              <h3 className="font-bold text-lg sm:text-xl font-serif-heading text-white">
-                {filteredMedia[lightboxIndex].title}
-              </h3>
-              <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">
-                {filteredMedia[lightboxIndex].description}
-              </p>
-            </div>
-          </div>
-        )}
+          );
+        })()}
 
       </div>
     </section>
