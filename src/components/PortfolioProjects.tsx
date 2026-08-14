@@ -190,7 +190,7 @@ export const PortfolioProjects: React.FC = () => {
             href="#contact"
             className="inline-flex items-center gap-3 bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-bold text-base px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 active:scale-95 group"
           >
-            <span>Voir Plus de Réalisations & Discuter de Votre Projet</span>
+            <span>Voir plus....</span>
             <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </a>
         </div>

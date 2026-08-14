@@ -392,12 +392,8 @@ export const MediaGallerySection: React.FC<MediaGallerySectionProps> = ({ onBack
 
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-10">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md text-emerald-400 font-bold text-xs uppercase tracking-wider mb-4 border border-white/15">
-            <Sparkles className="w-4 h-4 text-emerald-400" />
-            <span>Médiathèque Officielle BEIDY SERVICES</span>
-          </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black font-serif-heading text-white tracking-tight">
-            Espace Médiathèque & Galerie Dédiée
+            Notre Galerie
           </h2>
           <p className="text-gray-300 text-sm sm:text-base mt-4 leading-relaxed">
             Consultez nos clichés de terrain authentiques et nos vidéos de démonstration illustrant l'excellence de nos équipes en BTP, Forage d'eau et Import-Export.
@@ -426,66 +422,61 @@ export const MediaGallerySection: React.FC<MediaGallerySectionProps> = ({ onBack
           </div>
         </div>
 
-        {/* Filter Bar */}
+        {/* Filter Bar without Icons */}
         <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-12">
           <button
             onClick={() => setActiveCategory('all')}
-            className={`px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition-all duration-300 flex items-center gap-2 ${
+            className={`px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition-all duration-300 ${
               activeCategory === 'all'
                 ? 'bg-[#2563EB] text-white shadow-lg shadow-blue-600/30 scale-105'
                 : 'bg-white/10 hover:bg-white/20 text-gray-300 hover:text-white border border-white/10'
             }`}
           >
-            <Filter className="w-4 h-4" />
-            <span>Tous les Médias ({mediaItems.length})</span>
+            <span>Tous</span>
           </button>
 
           <button
             onClick={() => setActiveCategory('btp')}
-            className={`px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition-all duration-300 flex items-center gap-2 ${
+            className={`px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition-all duration-300 ${
               activeCategory === 'btp'
                 ? 'bg-[#2563EB] text-white shadow-lg shadow-blue-600/30 scale-105'
                 : 'bg-white/10 hover:bg-white/20 text-gray-300 hover:text-white border border-white/10'
             }`}
           >
-            <ImageIcon className="w-4 h-4 text-emerald-400" />
-            <span>BTP & Gros Œuvre</span>
+            <span>BTP</span>
           </button>
 
           <button
             onClick={() => setActiveCategory('forage')}
-            className={`px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition-all duration-300 flex items-center gap-2 ${
+            className={`px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition-all duration-300 ${
               activeCategory === 'forage'
                 ? 'bg-[#2563EB] text-white shadow-lg shadow-blue-600/30 scale-105'
                 : 'bg-white/10 hover:bg-white/20 text-gray-300 hover:text-white border border-white/10'
             }`}
           >
-            <ImageIcon className="w-4 h-4 text-blue-400" />
-            <span>Forage & Eau</span>
+            <span>Forage</span>
           </button>
 
           <button
             onClick={() => setActiveCategory('import-export')}
-            className={`px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition-all duration-300 flex items-center gap-2 ${
+            className={`px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition-all duration-300 ${
               activeCategory === 'import-export'
                 ? 'bg-[#2563EB] text-white shadow-lg shadow-blue-600/30 scale-105'
                 : 'bg-white/10 hover:bg-white/20 text-gray-300 hover:text-white border border-white/10'
             }`}
           >
-            <ImageIcon className="w-4 h-4 text-amber-400" />
-            <span>Import-Export & Négoce</span>
+            <span>Import-Export</span>
           </button>
 
           <button
             onClick={() => setActiveCategory('video')}
-            className={`px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition-all duration-300 flex items-center gap-2 ${
+            className={`px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition-all duration-300 ${
               activeCategory === 'video'
                 ? 'bg-[#2E9D62] text-white shadow-lg shadow-emerald-600/30 scale-105'
                 : 'bg-white/10 hover:bg-white/20 text-gray-300 hover:text-white border border-white/10'
             }`}
           >
-            <Video className="w-4 h-4 text-red-400" />
-            <span>Vidéos Démonstration (5)</span>
+            <span>Vidéos</span>
           </button>
         </div>
 
@@ -544,13 +535,6 @@ export const MediaGallerySection: React.FC<MediaGallerySectionProps> = ({ onBack
                   <p className="text-xs text-slate-400 mt-1 line-clamp-2 leading-relaxed">
                     {item.description}
                   </p>
-                </div>
-                <div className="mt-3 pt-2 border-t border-slate-700/40 flex items-center justify-between text-[11px] font-semibold text-slate-400">
-                  <span className="flex items-center gap-1">
-                    {item.type === 'video' ? <Video className="w-3.5 h-3.5 text-red-400" /> : <ImageIcon className="w-3.5 h-3.5 text-emerald-400" />}
-                    {item.type === 'video' ? 'Vidéo HD' : 'Photo Haute Résolution'}
-                  </span>
-                  <span className="text-[#38BDF8] group-hover:underline">Agrandir →</span>
                 </div>
               </div>
             </div>

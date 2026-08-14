@@ -64,8 +64,8 @@ export const DirectorMessage: React.FC = () => {
             <div className="relative bg-[#F8F9FA] p-8 sm:p-10 rounded-2xl border-l-4 border-[#2E9D62] shadow-sm">
               <Quote className="w-12 h-12 text-[#2E9D62]/20 absolute top-4 right-4 pointer-events-none" />
               
-              <blockquote className="font-serif-heading text-lg sm:text-2xl text-gray-800 font-semibold leading-relaxed italic">
-                « Notre engagement envers nos clients repose sur la solidité de nos constructions, l'accès universel à l'eau potable et l'excellence opérationnelle. Chez BEIDY SERVICES, nous transformons les défis techniques en réussites durables. »
+              <blockquote className="font-serif-heading text-base sm:text-xl text-gray-800 font-semibold leading-relaxed italic">
+                « Grâce à notre expertise unique qui fusionne le forage de précision, le BTP de grande envergure et une maîtrise totale de l’import-export, nous maîtrisons l'ensemble de la chaîne de valeur. Du sourcing des meilleurs matériaux à la livraison de chantiers complexes, nous éliminons les intermédiaires pour garantir une réactivité absolue. Face aux exigences du terrain et aux flux internationaux, nous convertissons la complexité technique et logistique en performances concrètes, sûres et durables pour nos partenaires. »
               </blockquote>
             </div>
 
