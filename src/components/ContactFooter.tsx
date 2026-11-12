@@ -3,7 +3,7 @@ import { Logo } from './Logo';
 import { Phone, Mail, MapPin, Send, MessageSquare, CheckCircle2, ShieldCheck, ChevronRight, Navigation } from 'lucide-react';
 
 interface ContactFooterProps {
-  preFilledData?: { service: string; location: string; message: string } | null;
+  preFilledData?: { service: string; location: string; message: string; subject?: string } | null;
 }
 
 export const ContactFooter: React.FC<ContactFooterProps> = ({ preFilledData }) => {
@@ -13,6 +13,7 @@ export const ContactFooter: React.FC<ContactFooterProps> = ({ preFilledData }) =
     phone: '',
     service: preFilledData?.service || 'BTP et Gros Œuvre',
     location: preFilledData?.location || 'Abidjan - Cocody / Abatta',
+    subject: preFilledData?.subject || '',
     message: preFilledData?.message || ''
   });
 
@@ -22,6 +23,7 @@ export const ContactFooter: React.FC<ContactFooterProps> = ({ preFilledData }) =
         ...prev,
         service: preFilledData.service || prev.service,
         location: preFilledData.location || prev.location,
+        subject: preFilledData.subject || prev.subject || '',
         message: preFilledData.message || prev.message
       }));
     }
@@ -70,7 +72,7 @@ export const ContactFooter: React.FC<ContactFooterProps> = ({ preFilledData }) =
   return (
     <>
       {/* Clean White Contact Section */}
-      <section id="contact" className="bg-white text-gray-900 py-10 sm:py-12 border-t border-gray-200 relative overflow-hidden">
+      <section id="contact" className="scroll-mt-16 sm:scroll-mt-20 bg-white text-gray-900 py-10 sm:py-12 border-t border-gray-200 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Main Title */}

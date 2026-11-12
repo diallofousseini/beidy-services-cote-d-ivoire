@@ -83,25 +83,45 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenQuoteModal, onNavigate, cu
 
           {/* Right Action CTA */}
           <div className="hidden sm:flex items-center">
-            <button
-              onClick={onOpenQuoteModal}
-              className="bg-[#2563EB] hover:bg-[#1D4ED8] text-white text-sm font-bold px-5 py-2.5 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 flex items-center gap-2 group transform active:scale-95"
+            <a
+              href="#contact"
+              onClick={(e) => {
+                e.preventDefault();
+                if (onNavigate) {
+                  onNavigate('home', 'contact');
+                } else {
+                  const el = document.getElementById('contact');
+                  if (el) el.scrollIntoView({ behavior: 'smooth' });
+                }
+                if (onOpenQuoteModal) onOpenQuoteModal();
+              }}
+              className="bg-[#2563EB] hover:bg-[#1D4ED8] text-white text-sm font-bold px-5 py-2.5 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 flex items-center gap-2 group transform active:scale-95 cursor-pointer"
               id="nav-quote-cta"
             >
               <FileText className="w-4 h-4 text-blue-200 group-hover:scale-110 transition-transform" />
               <span>Demander un devis</span>
               <ChevronRight className="w-4 h-4 text-blue-200 group-hover:translate-x-0.5 transition-transform" />
-            </button>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
           <div className="lg:hidden flex items-center gap-2">
-            <button
-              onClick={onOpenQuoteModal}
-              className="sm:hidden bg-[#2563EB] text-white text-xs font-bold px-3 py-2 rounded-md flex items-center gap-1 shadow"
+            <a
+              href="#contact"
+              onClick={(e) => {
+                e.preventDefault();
+                if (onNavigate) {
+                  onNavigate('home', 'contact');
+                } else {
+                  const el = document.getElementById('contact');
+                  if (el) el.scrollIntoView({ behavior: 'smooth' });
+                }
+                if (onOpenQuoteModal) onOpenQuoteModal();
+              }}
+              className="sm:hidden bg-[#2563EB] text-white text-xs font-bold px-3 py-2 rounded-md flex items-center gap-1 shadow cursor-pointer"
             >
               Devis
-            </button>
+            </a>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 rounded-lg text-gray-700 hover:text-[#2E9D62] hover:bg-gray-100 focus:outline-none"
@@ -134,16 +154,24 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenQuoteModal, onNavigate, cu
             </div>
 
             <div className="pt-2 space-y-2">
-              <button
-                onClick={() => {
+              <a
+                href="#contact"
+                onClick={(e) => {
+                  e.preventDefault();
                   setMobileMenuOpen(false);
-                  onOpenQuoteModal();
+                  if (onNavigate) {
+                    onNavigate('home', 'contact');
+                  } else {
+                    const el = document.getElementById('contact');
+                    if (el) el.scrollIntoView({ behavior: 'smooth' });
+                  }
+                  if (onOpenQuoteModal) onOpenQuoteModal();
                 }}
-                className="w-full bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-bold py-3 px-4 rounded-lg flex items-center justify-center gap-2 shadow"
+                className="w-full bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-bold py-3 px-4 rounded-lg flex items-center justify-center gap-2 shadow cursor-pointer"
               >
                 <FileText className="w-5 h-5" />
                 <span>Demander un devis gratuit</span>
-              </button>
+              </a>
 
               <a
                 href="tel:0707172596"

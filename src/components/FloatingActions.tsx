@@ -47,13 +47,19 @@ export const FloatingActions: React.FC<FloatingActionsProps> = ({ onOpenQuoteMod
       </a>
 
       {/* Floating Quote Request Button for Mobile */}
-      <button
-        onClick={onOpenQuoteModal}
-        className="pointer-events-auto sm:hidden bg-[#2563EB] text-white p-3.5 rounded-full shadow-2xl flex items-center justify-center"
+      <a
+        href="#contact"
+        onClick={(e) => {
+          e.preventDefault();
+          const el = document.getElementById('contact');
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+          if (onOpenQuoteModal) onOpenQuoteModal();
+        }}
+        className="pointer-events-auto sm:hidden bg-[#2563EB] text-white p-3.5 rounded-full shadow-2xl flex items-center justify-center cursor-pointer"
         aria-label="Devis Rapide"
       >
         <FileText className="w-5 h-5" />
-      </button>
+      </a>
 
     </div>
   );

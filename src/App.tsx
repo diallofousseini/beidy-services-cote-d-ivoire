@@ -20,29 +20,46 @@ export default function App() {
     service: string;
     location: string;
     message: string;
+    subject?: string;
   } | null>(null);
-
-  const handleOpenQuoteModal = (category?: string) => {
-    if (category) {
-      if (category === 'btp') setSelectedModalCategory('BTP et Gros Œuvre');
-      else if (category === 'forage') setSelectedModalCategory('Forage d\'Eau Potable');
-      else if (category === 'electrification') setSelectedModalCategory('Électrification Rurale & Solaire');
-      else setSelectedModalCategory(category);
-    } else {
-      setSelectedModalCategory('BTP et Gros Œuvre');
-    }
-    setIsQuoteModalOpen(true);
-  };
 
   const handleNavigation = (page: 'home' | 'mediatheque', sectionId?: string) => {
     setCurrentPage(page);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
     if (page === 'home' && sectionId && sectionId !== 'accueil') {
-      setTimeout(() => {
-        const el = document.getElementById(sectionId);
-        if (el) el.scrollIntoView({ behavior: 'smooth' });
-      }, 100);
+      const el = document.getElementById(sectionId);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        setTimeout(() => {
+          const elLater = document.getElementById(sectionId);
+          if (elLater) elLater.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      }
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
+  };
+
+  const handleScrollToContact = (category?: string) => {
+    handleNavigation('home', 'contact');
+    if (category) {
+      let mappedService = 'BTP et Gros Œuvre';
+      if (category === 'btp') mappedService = 'BTP et Gros Œuvre';
+      else if (category === 'forage') mappedService = "Forage d'Eau Potable";
+      else if (category === 'import-export' || category === 'electrification') mappedService = 'Import-Export & Négoce';
+      else mappedService = category;
+
+      setContactPreFill({
+        service: mappedService,
+        location: 'Abidjan - Cocody / Abatta',
+        subject: `Demande de devis - ${mappedService}`,
+        message: `Bonjour, je souhaite obtenir un devis pour votre prestation : ${mappedService}.`
+      });
+    }
+  };
+
+  const handleOpenQuoteModal = (category?: string) => {
+    handleScrollToContact(category);
   };
 
   return (
@@ -51,7 +68,7 @@ export default function App() {
       <Navbar
         currentPage={currentPage}
         onNavigate={handleNavigation}
-        onOpenQuoteModal={() => handleOpenQuoteModal()}
+        onOpenQuoteModal={() => handleScrollToContact()}
       />
 
       {/* Main Content View Switcher */}
@@ -69,14 +86,14 @@ export default function App() {
           /* PAGE D'ACCUEIL PRINCIPALE */
           <>
             {/* Section 1: Hero Carousel / Showcase */}
-            <Hero onOpenQuoteModal={() => handleOpenQuoteModal()} />
+            <Hero onOpenQuoteModal={() => handleScrollToContact()} />
 
             {/* Section 2: À Propos */}
             <AboutSection />
 
             {/* Section 3: Nos Domaines d'Expertise */}
             <ServicesSection
-              onSelectServiceForQuote={(cat) => handleOpenQuoteModal(cat)}
+              onSelectServiceForQuote={(cat) => handleScrollToContact(cat)}
             />
 
             {/* Section 4: Le Mot du Directeur Général (M. Hassane Barry) */}
@@ -105,7 +122,7 @@ export default function App() {
       />
 
       {/* Speed Dial / Floating WhatsApp & Phone Bar */}
-      <FloatingActions onOpenQuoteModal={() => handleOpenQuoteModal()} />
+      <FloatingActions onOpenQuoteModal={() => handleScrollToContact()} />
     </div>
   );
 }
