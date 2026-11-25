@@ -48,10 +48,10 @@ export const FloatingActions: React.FC<FloatingActionsProps> = ({ onOpenQuoteMod
 
       {/* Floating Quote Request Button for Mobile */}
       <a
-        href="#contact"
+        href="#contact-form"
         onClick={(e) => {
           e.preventDefault();
-          const el = document.getElementById('contact');
+          const el = document.getElementById('contact-form') || document.getElementById('contact');
           if (el) el.scrollIntoView({ behavior: 'smooth' });
           if (onOpenQuoteModal) onOpenQuoteModal();
         }}

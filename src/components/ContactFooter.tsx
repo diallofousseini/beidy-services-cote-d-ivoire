@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Logo } from './Logo';
-import { Phone, Mail, MapPin, Send, MessageSquare, CheckCircle2, ShieldCheck, ChevronRight, Navigation } from 'lucide-react';
+import { Phone, Mail, MapPin, Send, MessageSquare, CheckCircle2, ShieldCheck, ChevronRight, Navigation, FileText } from 'lucide-react';
 
 interface ContactFooterProps {
   preFilledData?: { service: string; location: string; message: string; subject?: string } | null;
@@ -82,26 +82,27 @@ export const ContactFooter: React.FC<ContactFooterProps> = ({ preFilledData }) =
             </h2>
           </div>
 
-          {/* 2-Column Responsive Layout */}
+          {/* 2-Column Responsive Layout : Formulaire en 1er (Priorité Contact & Devis) et Carte en 2nd */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-stretch">
             
-            {/* Colonne Gauche : Google Maps Interactive Full Height (Plus Code: 935C+G6 Abidjan) */}
-            <div className="w-full h-full min-h-[450px] rounded-3xl overflow-hidden border border-gray-200 shadow-md relative bg-gray-100">
-              <iframe
-                title="Localisation Siège Social BEIDY SERVICES - 935C+G6 Abidjan"
-                src="https://maps.google.com/maps?q=935C%2BG6+Abidjan,+C%C3%B4te+d%27Ivoire&t=&z=16&ie=UTF8&iwloc=&output=embed"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen={false}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                className="w-full h-full min-h-[450px] border-0"
-              />
-            </div>
+            {/* Colonne 1 : Formulaire de Contact & Devis Direct (Priorité UX) */}
+            <div
+              id="contact-form"
+              className="scroll-mt-24 sm:scroll-mt-28 bg-gray-50/90 p-6 sm:p-8 rounded-3xl border border-gray-200 shadow-lg flex flex-col justify-between"
+            >
+              <div className="mb-4">
+                <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#2563EB] bg-blue-50 px-3 py-1 rounded-full mb-2">
+                  <FileText className="w-3.5 h-3.5" />
+                  <span>Devis Rapide & Contact Direct</span>
+                </span>
+                <h3 className="text-xl sm:text-2xl font-black font-serif-heading text-gray-900">
+                  Formulaire de Demande
+                </h3>
+                <p className="text-xs text-gray-500 mt-1">
+                  Remplissez vos informations ci-dessous. Notre équipe technique vous répond sous 24h.
+                </p>
+              </div>
 
-            {/* Colonne Droite : Formulaire de Contact */}
-            <div className="bg-gray-50/70 p-6 sm:p-8 rounded-3xl border border-gray-200 shadow-md flex flex-col justify-between">
               {submitted ? (
                 <div className="bg-[#EBF7F0] border-2 border-[#2E9D62] p-8 rounded-2xl text-center space-y-4 my-auto">
                   <div className="w-14 h-14 bg-[#2E9D62] text-white rounded-full flex items-center justify-center mx-auto shadow-md">
@@ -121,64 +122,80 @@ export const ContactFooter: React.FC<ContactFooterProps> = ({ preFilledData }) =
                   </button>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-5 my-auto">
+                <form onSubmit={handleSubmit} className="space-y-4 my-auto">
                   {/* Nom & Prénom */}
                   <div>
-                    <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">
+                    <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">
                       Nom & Prénom *
                     </label>
                     <input
+                      id="contact-fullname"
                       type="text"
                       required
                       placeholder="Votre nom et prénom"
                       value={formData.fullName}
                       onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#2E9D62] focus:border-[#2E9D62] bg-white text-gray-900 transition-all"
+                      className="w-full px-4 py-2.5 rounded-xl border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#2E9D62] focus:border-[#2E9D62] bg-white text-gray-900 transition-all"
                     />
                   </div>
 
-                  {/* Email */}
-                  <div>
-                    <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">
-                      Email *
-                    </label>
-                    <input
-                      type="email"
-                      required
-                      placeholder="votre.email@exemple.ci"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#2E9D62] focus:border-[#2E9D62] bg-white text-gray-900 transition-all"
-                    />
+                  {/* 2 cols: Téléphone & Email */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                      <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">
+                        Téléphone *
+                      </label>
+                      <input
+                        type="tel"
+                        required
+                        placeholder="+225 07 07 17 25 96"
+                        value={formData.phone}
+                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                        className="w-full px-4 py-2.5 rounded-xl border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#2E9D62] focus:border-[#2E9D62] bg-white text-gray-900 transition-all"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">
+                        Email *
+                      </label>
+                      <input
+                        type="email"
+                        required
+                        placeholder="votre.email@exemple.ci"
+                        value={formData.email}
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        className="w-full px-4 py-2.5 rounded-xl border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#2E9D62] focus:border-[#2E9D62] bg-white text-gray-900 transition-all"
+                      />
+                    </div>
                   </div>
 
                   {/* Objet */}
                   <div>
-                    <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">
-                      Objet *
+                    <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">
+                      Objet / Prestation concernée *
                     </label>
                     <input
                       type="text"
                       required
-                      placeholder="Objet de votre message"
+                      placeholder="Ex: Devis Forage d'eau potable, BTP villa..."
                       value={formData.subject}
                       onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#2E9D62] focus:border-[#2E9D62] bg-white text-gray-900 transition-all"
+                      className="w-full px-4 py-2.5 rounded-xl border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#2E9D62] focus:border-[#2E9D62] bg-white text-gray-900 transition-all"
                     />
                   </div>
 
                   {/* Message */}
                   <div>
-                    <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">
-                      Message *
+                    <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">
+                      Message / Détails de votre projet *
                     </label>
                     <textarea
-                      rows={4}
+                      rows={3}
                       required
-                      placeholder="Votre message ou détails sur votre projet..."
+                      placeholder="Précisez vos besoins, localisation du chantier, superficie..."
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#2E9D62] focus:border-[#2E9D62] bg-white text-gray-900 transition-all"
+                      className="w-full px-4 py-2.5 rounded-xl border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#2E9D62] focus:border-[#2E9D62] bg-white text-gray-900 transition-all"
                     />
                   </div>
 
@@ -187,14 +204,43 @@ export const ContactFooter: React.FC<ContactFooterProps> = ({ preFilledData }) =
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full bg-[#2563EB] hover:bg-[#1D4ED8] disabled:bg-blue-400 text-white font-bold py-4 px-6 rounded-xl shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 text-base transform hover:-translate-y-0.5 active:translate-y-0"
+                      className="w-full bg-[#2563EB] hover:bg-[#1D4ED8] disabled:bg-blue-400 text-white font-bold py-3.5 px-6 rounded-xl shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 text-base transform hover:-translate-y-0.5 active:translate-y-0"
                     >
                       <Send className="w-5 h-5 text-blue-200" />
-                      <span>{isSubmitting ? 'Envoi en cours...' : 'Envoyer'}</span>
+                      <span>{isSubmitting ? 'Envoi en cours...' : 'Envoyer ma demande'}</span>
                     </button>
                   </div>
                 </form>
               )}
+            </div>
+
+            {/* Colonne 2 : Google Maps Interactive Full Height (Plus Code: 935C+G6 Abidjan) */}
+            <div className="w-full h-full min-h-[450px] rounded-3xl overflow-hidden border border-gray-200 shadow-md relative bg-gray-100 flex flex-col">
+              <div className="bg-white px-5 py-3 border-b border-gray-200 flex items-center justify-between text-xs font-semibold text-gray-600">
+                <span className="flex items-center gap-1.5 text-gray-800 font-bold">
+                  <MapPin className="w-4 h-4 text-[#2E9D62]" />
+                  Siège : Cocody / Abatta (935C+G6 Abidjan)
+                </span>
+                <a
+                  href="https://maps.google.com/?q=935C%2BG6+Abidjan"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#2563EB] hover:underline font-bold"
+                >
+                  Itinéraire
+                </a>
+              </div>
+              <iframe
+                title="Localisation Siège Social BEIDY SERVICES - 935C+G6 Abidjan"
+                src="https://maps.google.com/maps?q=935C%2BG6+Abidjan,+C%C3%B4te+d%27Ivoire&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen={false}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="w-full flex-1 min-h-[380px] border-0"
+              />
             </div>
 
           </div>

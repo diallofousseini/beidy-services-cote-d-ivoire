@@ -84,13 +84,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenQuoteModal, onNavigate, cu
           {/* Right Action CTA */}
           <div className="hidden sm:flex items-center">
             <a
-              href="#contact"
+              href="#contact-form"
               onClick={(e) => {
                 e.preventDefault();
                 if (onNavigate) {
-                  onNavigate('home', 'contact');
+                  onNavigate('home', 'contact-form');
                 } else {
-                  const el = document.getElementById('contact');
+                  const el = document.getElementById('contact-form') || document.getElementById('contact');
                   if (el) el.scrollIntoView({ behavior: 'smooth' });
                 }
                 if (onOpenQuoteModal) onOpenQuoteModal();
@@ -107,13 +107,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenQuoteModal, onNavigate, cu
           {/* Mobile Menu Button */}
           <div className="lg:hidden flex items-center gap-2">
             <a
-              href="#contact"
+              href="#contact-form"
               onClick={(e) => {
                 e.preventDefault();
                 if (onNavigate) {
-                  onNavigate('home', 'contact');
+                  onNavigate('home', 'contact-form');
                 } else {
-                  const el = document.getElementById('contact');
+                  const el = document.getElementById('contact-form') || document.getElementById('contact');
                   if (el) el.scrollIntoView({ behavior: 'smooth' });
                 }
                 if (onOpenQuoteModal) onOpenQuoteModal();
@@ -155,14 +155,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenQuoteModal, onNavigate, cu
 
             <div className="pt-2 space-y-2">
               <a
-                href="#contact"
+                href="#contact-form"
                 onClick={(e) => {
                   e.preventDefault();
                   setMobileMenuOpen(false);
                   if (onNavigate) {
-                    onNavigate('home', 'contact');
+                    onNavigate('home', 'contact-form');
                   } else {
-                    const el = document.getElementById('contact');
+                    const el = document.getElementById('contact-form') || document.getElementById('contact');
                     if (el) el.scrollIntoView({ behavior: 'smooth' });
                   }
                   if (onOpenQuoteModal) onOpenQuoteModal();

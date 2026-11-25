@@ -26,12 +26,13 @@ export default function App() {
   const handleNavigation = (page: 'home' | 'mediatheque', sectionId?: string) => {
     setCurrentPage(page);
     if (page === 'home' && sectionId && sectionId !== 'accueil') {
-      const el = document.getElementById(sectionId);
+      const targetId = (sectionId === 'contact' || sectionId === 'contact-form') ? 'contact-form' : sectionId;
+      const el = document.getElementById(targetId) || document.getElementById(sectionId);
       if (el) {
         el.scrollIntoView({ behavior: 'smooth' });
       } else {
         setTimeout(() => {
-          const elLater = document.getElementById(sectionId);
+          const elLater = document.getElementById(targetId) || document.getElementById(sectionId);
           if (elLater) elLater.scrollIntoView({ behavior: 'smooth' });
         }, 100);
       }
@@ -41,7 +42,11 @@ export default function App() {
   };
 
   const handleScrollToContact = (category?: string) => {
-    handleNavigation('home', 'contact');
+    handleNavigation('home', 'contact-form');
+    setTimeout(() => {
+      const input = document.getElementById('contact-fullname') as HTMLInputElement | null;
+      if (input) input.focus();
+    }, 250);
     if (category) {
       let mappedService = 'BTP et Gros Œuvre';
       if (category === 'btp') mappedService = 'BTP et Gros Œuvre';
